@@ -1,6 +1,6 @@
 <H1> COP3530 - Project 3 </h1>
 This is the template for Project 3 repositories. It includes all the assignment instructions and documentation to help you use GitHub.
-
+Google Doc: https://docs.google.com/document/d/16jeHNHj802-zguv49YW67QjcspoXpWC0BTI9WfnULJI/edit?usp=sharing
 <h2> Table of Contents </h2>
 
 - [Documentation and resources on how to use GitHub for Project 3](#documentation-and-resources-on-how-to-use-github-for-project-3)
