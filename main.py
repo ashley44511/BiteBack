@@ -1,12 +1,12 @@
-# pip install pandas
-# requirements.txt? we'll see later
+# run when user submits their five food items
+import pickle
+import graphPickle 
+# script with algorithms
 
-import pandas as pd
+with open("./data/data_graph.pickle", "rb") as graphFile:
+    graph = pickle.load(graphFile)
+#graph = pickle.load(open("data/data_graph.pickle", "rb"))
+#hash = pickle.load(open("data/data_hash.pickle", "rb"))
 
-df = pd.read_csv("data/food.csv")
-remove = 'Category'
-remove_again = 'Nutrient Data Bank Number'
-df.drop(remove, axis=1, inplace=True)
-df.drop(remove_again, axis=1, inplace=True)
-df = df.head()
-df.head() 
+if __name__ == "__main__":
+    graph.print_graph()
