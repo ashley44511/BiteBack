@@ -3,6 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import autofilledData from "./autofilledData"; //create autofilled data
+import userInput from "./userInput"; //five foods user input
+//other components to add: header, food fact, footer
+
+
 function App() {
   const [count, setCount] = useState(0)
 

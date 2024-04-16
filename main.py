@@ -2,6 +2,8 @@
 # requirements.txt? we'll see later
 
 import pandas as pd
+import graphPickle as graphPickle
+
 df = pd.read_csv("data/food.csv")
 remove = 'Category'
 remove_again = 'Nutrient Data Bank Number'
