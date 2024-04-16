@@ -1,4 +1,4 @@
-
+import pickle
 class Graph:
     def __init__(self):
         # graph is a dictionary of sets, with each value in the set being a tuple in the format: (nodeName, weight)
@@ -50,3 +50,8 @@ if __name__ == "__main__":
     graph.add_edge("mango", "vitamin D", 2)
 
     graph.print_graph()
+
+    # once graph is fully loaded 
+    with open("data_graph.pickle", "wb") as file:
+        pickle.dump(graph, file)
+        print ("Graph successfully pickled!")
