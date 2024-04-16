@@ -52,6 +52,6 @@ if __name__ == "__main__":
     graph.print_graph()
 
     # once graph is fully loaded 
-    with open("data_graph.pickle", "wb") as file:
+    with open("data/data_graph.pickle", "wb") as file:
         pickle.dump(graph, file)
         print ("Graph successfully pickled!")
