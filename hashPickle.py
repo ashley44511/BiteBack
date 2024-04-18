@@ -1,4 +1,5 @@
 import pickle
+from dataCleaning import df
 
 # Referenced Geeks for Geeks for Hash Table implementation
 # https://www.geeksforgeeks.org/implementation-of-hash-table-in-python-using-separate-chaining/
@@ -44,7 +45,6 @@ class Hash:
         
         return self.table[index].nutrients
         # returning the entry itself. can alter to return only the nutrients
-
 
 
 if __name__ == "__main__":
