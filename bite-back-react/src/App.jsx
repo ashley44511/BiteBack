@@ -26,6 +26,9 @@ function App() {
 	      </label>
 	      <p>Input Value: {inputValue}</p>
       </form>
+      <p>
+        Output:
+      </p>
     </>
   )
 }

@@ -10,3 +10,7 @@ Currently, two official plugins are available:
 #to run in browser:
     cd bite-back-react
     npm run dev
+
+https://www.youtube.com/watch?v=6r_QBgq-seA
+https://avionmission.hashnode.dev/how-to-use-python-code-in-your-react-app-react-flask-tutorial
+
