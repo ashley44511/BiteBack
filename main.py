@@ -2,6 +2,8 @@
 import pickle
 from graphPickle import Graph
 from hashPickle import HashTable
+from hashPickle import Entry
+
 # script with algorithms
 graph = Graph()
 hash = HashTable()
@@ -16,4 +18,4 @@ graphFile.close()
 hashFile.close()
 
 if __name__ == "__main__":
-    graph.print_graph()
+    print(graph.getFood("Milk, human"))

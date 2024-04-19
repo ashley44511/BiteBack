@@ -32,13 +32,22 @@ class Graph:
         self.edges += 1
 
     def load_data(self, df):
+        #this function is used to load the dataframe into the graph
         for index, row in df.iterrows():
             food = row.iloc[0]
             for nutrient, amount in zip(df.columns[1:], row.iloc[1:]):
                 self.add_edge(food, nutrient, amount)
 
-    # Print the graph - to check proper loading
+    def getFood(self, foodName):
+        # this returns the entire list of nodes to a food, which should be ALL nutrients
+        return self.adjList[foodName]
+    
+    def getNutrient(self, foodName, nutrientName):
+        nutrients = self.getFood(foodName)
+        nutrientStr = "Data."
+    
     def print_graph(self):
+        # Print the graph - to check proper loading
         for key, value in self.adjList.items():
             print(f"{key}: {value}")
         
@@ -59,7 +68,9 @@ if __name__ == "__main__":
     graph.add_edge("mango", "vitamin D", 2)
     '''
 
-    # once graph is fully loaded 
-    with open("data/data_graph.pickle", "wb") as file:
-        pickle.dump(graph, file)
-        print ("Graph successfully pickled!")
+    # once graph is fully loaded (only need to do this once since it stores the whole data set)
+    # with open("data/data_graph.pickle", "wb") as file:
+        # pickle.dump(graph, file)
+        # print ("Graph successfully pickled!")
+
+    
