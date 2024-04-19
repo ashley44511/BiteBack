@@ -1,10 +1,10 @@
 # run when user submits their five food items
 import pickle
 from graphPickle import Graph
-from hashPickle import Hash
+from hashPickle import HashTable
 # script with algorithms
 graph = Graph()
-hash = Hash()
+hash = HashTable()
 
 # get data into classes from pickle file
 with open("./data/data_graph.pickle", "rb") as graphFile:

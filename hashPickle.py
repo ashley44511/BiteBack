@@ -1,5 +1,6 @@
 import pickle
-from dataCleaning import df
+from dataCleaning import loadData
+df = loadData()
 
 # Referenced Geeks for Geeks for Hash Table implementation
 # https://www.geeksforgeeks.org/implementation-of-hash-table-in-python-using-separate-chaining/
@@ -12,7 +13,7 @@ class Entry:
         self.nutrients = nutrients  
     # can maybe make a compare function here that can calculate the nutritional differences
 
-class Hash:
+class HashTable:
     # constructor for HT
     def __init__(self):
         self.size = 0
@@ -48,16 +49,16 @@ class Hash:
 
 
 if __name__ == "__main__":
-    hash = Hash()
+    ht = HashTable()
     # iterate through each row of dataframe and store food name + nutritional content
     for index, row, in df.iterrows():
         food = row.iloc[0]
         nutrition = {}
         for nutrient, amount in zip(df.columns[1:], row.iloc[1:]):
             nutrition[nutrient] = amount
-        hash.insert(food, nutrition)
+        ht.insert(food, nutrition)
 
     # after hash data is loaded and saved
     with open("data/data_hash.pickle", "wb") as file:
-        pickle.dump(hash, file) 
+        pickle.dump(ht, file) 
         print("Hash map successfully pickled!")
