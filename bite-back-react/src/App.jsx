@@ -1,39 +1,23 @@
-import { useState } from 'react'
-import './App.css'
-
-import autofilledData from "./autofilledData"; //create autofilled data
-import userInput from "./userInput"; //five foods user input
-import form from "./form";
-//other components to add: header, food fact, footer
-
+import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
-  
-  //const [submitted, setSubmitted] = useState(false);
-  //const [autofilled, setAutofilled] = useState(autofilledData.foodOne);
-  const  [inputValue, setInputValue] =  useState('');
+  const [currentTime, setCurrentTime] = useState(0);
 
-  const  handleChange = (event) => {
-		setInputValue(event.target.value);
-	};
+  useEffect(() => {
+    fetch('/time').then(res => res.json()).then(data => {
+      setCurrentTime(data.time);
+    });
+  }, []);
 
   return (
-    <>
-      <h1 color="black">test</h1>
-      <form>
-	      <label>formTitle
-	      <input  type="text"  value={inputValue} onChange={handleChange} />
-	      </label>
-	      <p>Input Value: {inputValue}</p>
-      </form>
-      <p>
-        Output:
-      </p>
-    </>
-  )
+    <div className="App">
+      <header className="App-header">
+
+        <p>The current time is {currentTime}.</p>
+      </header>
+    </div>
+  );
 }
 
-export default App
-
-
-//https://www.freecodecamp.org/news/how-to-build-forms-in-react/
+export default App;

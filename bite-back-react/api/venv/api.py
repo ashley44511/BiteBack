@@ -1,7 +1,8 @@
 from flask import Flask
+import time
 
-app = flask(__name__)
+app = Flask(__name__)
 
-@app.route('/api/route')
-def predict():
-    return{'accuracy': 27}
+@app.route('/time')
+def get_current_time():
+    return {'time': time.time()}

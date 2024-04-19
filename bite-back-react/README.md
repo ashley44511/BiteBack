@@ -14,3 +14,9 @@ Currently, two official plugins are available:
 https://www.youtube.com/watch?v=6r_QBgq-seA
 https://avionmission.hashnode.dev/how-to-use-python-code-in-your-react-app-react-flask-tutorial
 
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project
+^may add script to run api later
+
