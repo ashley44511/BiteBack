@@ -43,15 +43,17 @@ class Graph:
         return self.adjList[foodName]
     
     def getNutrient(self, foodName, nutrientName):
+        #returns value of a specific nutrient for food
         nutrients = self.getFood(foodName)
-        nutrientStr = "Data."
+        for nutrient in nutrients:
+            if nutrient[0] == nutrientName:
+                return nutrient[1]
     
     def print_graph(self):
-        # Print the graph - to check proper loading
+        # Print the graph - used to check proper loading
         for key, value in self.adjList.items():
             print(f"{key}: {value}")
         
-
 
 if __name__ == "__main__":
     # Create graph, Load DF, and insert nodes/edges

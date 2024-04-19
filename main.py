@@ -19,3 +19,4 @@ hashFile.close()
 
 if __name__ == "__main__":
     print(graph.getFood("Milk, human"))
+    print(graph.getNutrient("Milk, human", "Cholesterol"))
