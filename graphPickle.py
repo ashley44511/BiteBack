@@ -1,5 +1,6 @@
 import pickle
 import pandas as pd 
+from dataCleaning import loadData
 
 
 # adjacency list in python inspiration: https://www.programiz.com/dsa/graph-adjacency-list
@@ -29,32 +30,34 @@ class Graph:
             self.adjList[nodeTo].add((nodeFrom, weight))
         
         self.edges += 1
-        
 
-    # Print the graph
+    def load_data(self, df):
+        for index, row in df.iterrows():
+            food = row.iloc[0]
+            for nutrient, amount in zip(df.columns[1:], row.iloc[1:]):
+                self.add_edge(food, nutrient, amount)
+
+    # Print the graph - to check proper loading
     def print_graph(self):
         for key, value in self.adjList.items():
             print(f"{key}: {value}")
         
-            #print("Vertex " + str(i) + ": ", end="")
-             
-            #for j in self.adjList[i]:
-               # print("->", end =" ")
-               # print(str(j), end = "")
-                 
-            #print(" \n")
 
 
 if __name__ == "__main__":
-    # Create graph and edges
+    # Create graph, Load DF, and insert nodes/edges
     graph = Graph()
+    df = loadData()
+    graph.load_data(df)
+
+    # example graph :
+    '''
     graph.add_edge("milk", "protein", 5)
     graph.add_edge("milk", "fat", 6)
     graph.add_edge("sausage", "protein", 2)
     graph.add_edge("banana", "vitamin C", 3)
     graph.add_edge("mango", "vitamin D", 2)
-
-    graph.print_graph()
+    '''
 
     # once graph is fully loaded 
     with open("data/data_graph.pickle", "wb") as file:
