@@ -11,17 +11,17 @@ function App() {
   const [profileData, setProfileData] = useState(null);
   //const [submitted, setSubmitted] = useState(false);
   //const [autofilled, setAutofilled] = useState(autofilledData.foodOne);
-  const [inputValue, setInputValue] = useState("");
-
+  //const [inputValue, setInputValue] = useState("");
+  /*
   const handleChange = (event) => {
     setInputValue(event.target.value);
-  };
+  }; */
 
   function getData() {
     axios({
-      method: "GET",
-      url: "/profile/",
-    })
+        method: "POST",
+        url: "/profile/",
+      })
       .then((response) => {
         const res = response.data;
         setProfileData({

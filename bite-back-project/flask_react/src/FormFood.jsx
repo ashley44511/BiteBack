@@ -10,12 +10,6 @@ export default function FormFood({ formTitle, formValue }) {
   };
 
   return (
-    <form>
-      <label>
-        {formTitle}
-        <input type="text" value={inputValue} onChange={handleChange} />
-      </label>
-      <p>Input Value: {inputValue}</p>
-    </form>
+    <></>
   );
 }
