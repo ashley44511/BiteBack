@@ -13,7 +13,7 @@ class Graph:
         self.edges = 0 #one undirected edge is one edge
 
 
-    # Add edges
+    # Adds edges
     def add_edge(self, nodeTo, nodeFrom, weight):
         #have to store edge twice since this graph is undirected
         #check that node not already in graph
@@ -48,6 +48,66 @@ class Graph:
         for nutrient in nutrients:
             if nutrient[0] == nutrientName:
                 return nutrient[1]
+            
+    def mealNutrition(self, meal):
+        # returns base nutrition of an input meal 
+        totalNutrition = {}
+        for food in meal:
+            foodNutrition = self.getFood(food)
+            for nutrient, amount in foodNutrition.items():
+                if nutrient in totalNutrition:
+                    totalNutrition[nutrient] += amount
+                else:
+                    totalNutrition[nutrient] = amount
+
+        return totalNutrition
+
+    def neededNutrients(self, meal):
+        # returns nutrients needed based on daily intake
+        # recommended daily intake of nutrients. taken from
+        # https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
+        # initiated as dictionary of form 'nutrient name: amount"
+        # total nutrients needed daily
+        daily_intake = {
+            "Alpha Carotene": 0,
+            "Beta Carotene": 0,
+            "Beta Cryptoxanthin": 0,
+            "Carbohydrate": 275,
+            "Cholesterol": 300,
+            "Choline": 2300,
+            "Fiber": 28,
+            "Lutein and Zeaxanthin": 0,
+            "Lycopene": 0,
+            "Niacin": 16,
+            "Protein": 50,
+            "Retinol": 0,
+            "Riboflavin": 1.3,
+            "Selenium": 55,
+            "Sugar Total": 50,
+            "Thiamin": 1.2,
+            "Water": 0,
+            "Monosaturated Fat": 0,
+            "Polysaturated Fat": 0,
+            "Saturated Fat": 20,
+            "Total Lipid": 78,
+            "Calcium": 1300,
+            "Copper": 0.9,
+            "Iron": 18,
+            "Magnesium": 420,
+            "Phosphorus": 1250,
+            "Potassium": 4700,
+            "Sodium": 2300,
+            "Zinc": 11,
+            "Vitamin A - RAE": 900,
+            "Vitamin B12": 2.4,
+            "Vitamin B6": 1.7,
+            "Vitamin C": 90,
+            "Vitamin E": 15,
+            "Vitamin K": 120
+        }
+
+
+
     
     def print_graph(self):
         # Print the graph - used to check proper loading

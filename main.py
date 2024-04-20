@@ -25,9 +25,6 @@ def runHash(input):
     hashMealNutrition = hash.mealNutrition(input)
 
     # find nutrients needed to improve meal
-    # recommended daily intake of nutrients. taken from
-    # https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
-    # initiated as dictionary of form 'nutrient name: amount"
     print(hash.neededNutrients(meal))
 
     # run algorithm for both graph and hash 
@@ -51,10 +48,14 @@ def createPieChart(nutrients):
 
 if __name__ == "__main__":
     # get input from website
-    # todo 
+    # TODO
     # example for now
     input = "Cuban sandwich, with spread"
     meal = [input]
 
-    time, suggestions = runHash(input)
+    # each functions compares the time it took and the nutrients suggested by each data structure
+    time, suggestions = runHash(input) 
     time, suggestions = runGraph(input)
+
+    #create visualizations
+    createPieChart(hash.neededNutrients(input))
