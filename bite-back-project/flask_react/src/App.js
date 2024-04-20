@@ -1,11 +1,21 @@
 import { useState } from "react";
 import axios from "axios";
-import logo from "./logo.svg";
 import "./App.css";
+
+import UserInput from "./UserInput"; //five foods user input
+import FormFood from "./FormFood";
+//other components to add: header, food fact, footer
 
 function App() {
   // new line start
   const [profileData, setProfileData] = useState(null);
+  //const [submitted, setSubmitted] = useState(false);
+  //const [autofilled, setAutofilled] = useState(autofilledData.foodOne);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
   function getData() {
     axios({
@@ -32,22 +42,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <h1>Bite Back</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This tool suggests food items to add to your meals to improve overall
+          nutrition value
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-
         {/* new line start*/}
-        <p>To get your profile details: </p>
-        <button onClick={getData}>Click me</button>
+        <p>Enter items from your meal below:</p>
+        <UserInput />
+        <button onClick={getData}>Submit</button>
         {profileData && (
           <div>
             <p>Profile name: {profileData.profile_name}</p>
