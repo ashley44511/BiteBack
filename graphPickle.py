@@ -50,7 +50,7 @@ class Graph:
                 return nutrient[1]
             
     def mealNutrition(self, meal):
-        # returns base nutrition of an input meal 
+        # returns base nutrition of an input meal as a dictionary
         totalNutrition = {}
         for food in meal:
             foodNutrition = self.getFood(food)
@@ -105,6 +105,19 @@ class Graph:
             "Vitamin E": 15,
             "Vitamin K": 120
         }
+        
+        # nutrients in the dataset that didn't have daily recommendations 
+        irrelevant = ["Alpha Carotene", "Beta Carotene", "Beta Cryptoxanthin", "Lutein and Zeaxanthin", 
+                  "Lycopene", "Retinol", "Water", "Monosaturated Fat", "Polysaturated Fat"]
+        
+        # total nutrients in user meal
+        mealNutrition = self.mealNutrition(meal)
+
+        # determine nutrients needed
+        needed = daily_intake
+        for nutrient, amount in mealNutrition.items():
+            needed[nutrient] -= (amount)
+        return needed # returning a dictionary in format 'nutrient name: amount needed'
 
 
 
