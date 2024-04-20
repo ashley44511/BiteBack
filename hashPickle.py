@@ -48,9 +48,8 @@ class HashTable:
         return self.table[index].nutrients
         # returning the entry itself. can alter to return only the nutrients
 
-    # determing how many user nutrients needs
-    def neededNutrients(self, meal, daily_intake):
-        # total nutrients in their meal
+    def mealNutrition(self, meal):
+        # returns the nutrition of an input meal
         total = {}
         for food in meal:
             nutrition = self.search(food)
@@ -59,6 +58,55 @@ class HashTable:
                     total[nutrient] += amount
                 else:
                     total[nutrient] = amount
+        return total
+
+    # determing how many user nutrients needs
+    def neededNutrients(self, meal):
+        # total nutrients needed daily
+        daily_intake = {
+            "Alpha Carotene": 0,
+            "Beta Carotene": 0,
+            "Beta Cryptoxanthin": 0,
+            "Carbohydrate": 275,
+            "Cholesterol": 300,
+            "Choline": 2300,
+            "Fiber": 28,
+            "Lutein and Zeaxanthin": 0,
+            "Lycopene": 0,
+            "Niacin": 16,
+            "Protein": 50,
+            "Retinol": 0,
+            "Riboflavin": 1.3,
+            "Selenium": 55,
+            "Sugar Total": 50,
+            "Thiamin": 1.2,
+            "Water": 0,
+            "Monosaturated Fat": 0,
+            "Polysaturated Fat": 0,
+            "Saturated Fat": 20,
+            "Total Lipid": 78,
+            "Calcium": 1300,
+            "Copper": 0.9,
+            "Iron": 18,
+            "Magnesium": 420,
+            "Phosphorus": 1250,
+            "Potassium": 4700,
+            "Sodium": 2300,
+            "Zinc": 11,
+            "Vitamin A - RAE": 900,
+            "Vitamin B12": 2.4,
+            "Vitamin B6": 1.7,
+            "Vitamin C": 90,
+            "Vitamin E": 15,
+            "Vitamin K": 120
+        }
+
+        # nutrients in the dataset that didn't have daily recommendations 
+        irrelevant = ["Alpha Carotene", "Beta Carotene", "Beta Cryptoxanthin", "Lutein and Zeaxanthin", 
+                  "Lycopene", "Retinol", "Water", "Monosaturated Fat", "Polysaturated Fat"]
+
+        # total nutrients in user meal
+        total = self.mealNutrition(meal)
                     
         # determining nutrients needed
         needed = daily_intake
