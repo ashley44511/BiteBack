@@ -11,7 +11,8 @@ class Entry:
     def __init__(self, food, nutrients):
         self.food = food
         self.nutrients = nutrients  
-    # can maybe make a compare function here that can calculate the nutritional differences
+    # food = name of food | nutrients = nutrition of the food
+    # for hashtable of each nutrient, self.nutrients = amount of nutrient in that food
 
 class HashTable:
     # constructor for HT
@@ -19,7 +20,7 @@ class HashTable:
         self.size = 0
         self.table = [None] * 7083
         # 7083 rows in the table
-   
+      
     # inserting into HT
     def insert(self, food, nutrition):
         index = hash(food) % 7082
@@ -45,7 +46,7 @@ class HashTable:
                 index = 0
         
         return self.table[index].nutrients
-        # returning the entry itself. can alter to return only the nutrients
+        # returning the only the nutrients
 
     def mealNutrition(self, meal):
         # returns the base nutrition of an input meal
@@ -64,7 +65,6 @@ class HashTable:
         # recommended daily intake of nutrients. taken from
         # https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
         # initiated as dictionary of form 'nutrient name: amount"
-        # total nutrients needed daily
         daily_intake = {
             "Alpha Carotene": 0,
             "Beta Carotene": 0,
@@ -115,14 +115,12 @@ class HashTable:
         for food, amount in total.items():
             needed[food] -= (amount)    
         return needed # returning a dictionary in format 'nutrient name: amount needed'
-        
+    
     def getSuggestions(self, neededNutrients):
         # TODO
         # function to parse hash map and find 5 food suggestions to improve meal. 
         # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
         suggestions = []
-
-
 
         return suggestions
 
@@ -136,7 +134,7 @@ if __name__ == "__main__":
             nutrition[nutrient] = amount
         ht.insert(food, nutrition)
 
-    
+     
     # after hash data is loaded and saved
     with open("data/data_hash.pickle", "wb") as file:
         pickle.dump(ht, file) 
