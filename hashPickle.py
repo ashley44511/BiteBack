@@ -117,12 +117,13 @@ class HashTable:
         return needed # returning a dictionary in format 'nutrient name: amount needed'
         
     def getSuggestions(self, neededNutrients):
+        # TODO
         # function to parse hash map and find 5 food suggestions to improve meal. 
         # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
         suggestions = []
 
 
-        
+
         return suggestions
 
 if __name__ == "__main__":

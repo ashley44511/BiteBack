@@ -12,7 +12,6 @@ class Graph:
         self.size = 0 #nodes
         self.edges = 0 #one undirected edge is one edge
 
-
     # Adds edges
     def add_edge(self, nodeTo, nodeFrom, weight):
         #have to store edge twice since this graph is undirected
@@ -125,6 +124,7 @@ class Graph:
             print(f"{key}: {value}")
 
     def getSuggestions(self, neededNutrients):
+    # TODO
     # function to parse graph and find 5 food suggestions to improve meal. 
     # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
         suggestions = []
@@ -139,7 +139,7 @@ if __name__ == "__main__":
     df = loadData()
     graph.load_data(df)
 
-    # example graph :
+    # example graph for testing :
     '''
     graph.add_edge("milk", "protein", 5)
     graph.add_edge("milk", "fat", 6)
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     graph.add_edge("mango", "vitamin D", 2)
     '''
 
-    # once graph is fully loaded (only need to do this once since it stores the whole data set)
+    # once graph is fully loaded (only need to do this once since it stores the whole data set - point is to reduce runtime when using webapp)
     with open("data/data_graph.pickle", "wb") as file:
         pickle.dump(graph, file)
         print ("Graph successfully pickled!")
