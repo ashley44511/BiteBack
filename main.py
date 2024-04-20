@@ -35,14 +35,6 @@ if __name__ == "__main__":
     createPieChart()
 
     # find nutrients needed to improve meal
-
-
-    # run algorithm for both graph and hash 
-
-
-    # return 5 suggested foods
-
-
     # recommended daily intake of nutrients. taken from
     # https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
     # initiated as dictionary of form 'nutrient name: amount'
@@ -94,3 +86,8 @@ if __name__ == "__main__":
 
     meal = ["Cuban sandwich, with spread"]
     print(hash.neededNutrients(meal, daily_intake))
+
+    # run algorithm for both graph and hash 
+
+
+    # return 5 suggested foods
