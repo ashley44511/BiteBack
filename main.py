@@ -4,6 +4,7 @@ from graphPickle import Graph
 from hashPickle import HashTable
 from hashPickle import Entry
 import plotly
+import time
 
 # script with algorithms
 graph = Graph()
@@ -18,14 +19,16 @@ with open("./data/data_hash.pickle", "rb") as hashFile:
 graphFile.close()
 hashFile.close()
 
-def runHash(input):
+def runHash(meal):
     # HASH - start time here
+    startTime = time.time()
+    foodSuggestions = {}
     
-    # find current meal nutrients 
-    hashMealNutrition = hash.mealNutrition(input)
+    # find current meal nutrients - this is used for visualizations
+    mealNutrition = hash.mealNutrition(meal)
 
     # find nutrients needed to improve meal
-    print(hash.neededNutrients(meal))
+    neededNutrients = hash.neededNutrients(meal)
 
     # run algorithm for both graph and hash 
 
@@ -33,10 +36,32 @@ def runHash(input):
     # return 5 suggested foods - END HASH TIME
 
 
-def runGraph(input):
-# GRAPH - start here and record time
-    # find current meal nutrients
-    pass
+    endTime = time.time()
+    runTime = endTime - startTime #calculate runTime of hash 
+    return runTime, foodSuggestions
+
+
+
+def runGraph(meal):
+# GRAPH - start time here
+    startTime = time.time()
+    foodSuggestions = {}
+    # find current meal nutrients - this is used for visualizations
+    mealNutrition = graph.mealNutrition(meal)
+
+    # find nutrients needed to improve meal
+    neededNutrients = graph.neededNutrients(meal)
+
+    # run algorithm for both graph and hash 
+
+
+    # return 5 suggested foods - END HASH TIME
+
+
+    endTime = time.time()
+    runTime = endTime - startTime 
+    return runTime, foodSuggestions
+    
 
 
 
@@ -49,13 +74,13 @@ def createPieChart(nutrients):
 if __name__ == "__main__":
     # get input from website
     # TODO
-    # example for now
-    input = "Cuban sandwich, with spread"
+
+    input = "Cuban sandwich, with spread"   # example input for now
     meal = [input]
 
-    # each functions compares the time it took and the nutrients suggested by each data structure
-    time, suggestions = runHash(input) 
-    time, suggestions = runGraph(input)
+    # each functions compares the time it took and the foods suggested by each data structure
+    hashTime, hashSuggestions = runHash(input) 
+    grapTtime, graphSuggestions = runGraph(input)
 
     #create visualizations
-    createPieChart(hash.neededNutrients(input))
+   

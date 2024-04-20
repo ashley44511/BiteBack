@@ -19,8 +19,7 @@ class HashTable:
         self.size = 0
         self.table = [None] * 7083
         # 7083 rows in the table
-
-        
+   
     # inserting into HT
     def insert(self, food, nutrition):
         index = hash(food) % 7082

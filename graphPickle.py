@@ -119,9 +119,6 @@ class Graph:
             needed[nutrient] -= (amount)
         return needed # returning a dictionary in format 'nutrient name: amount needed'
 
-
-
-    
     def print_graph(self):
         # Print the graph - used to check proper loading
         for key, value in self.adjList.items():
