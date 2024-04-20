@@ -123,7 +123,15 @@ class Graph:
         # Print the graph - used to check proper loading
         for key, value in self.adjList.items():
             print(f"{key}: {value}")
-        
+
+    def getSuggestions(self, neededNutrients):
+    # function to parse graph and find 5 food suggestions to improve meal. 
+    # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
+        suggestions = []
+
+
+    
+        return suggestions  
 
 if __name__ == "__main__":
     # Create graph, Load DF, and insert nodes/edges

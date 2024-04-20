@@ -22,7 +22,6 @@ hashFile.close()
 def runHash(meal):
     # HASH - start time here
     startTime = time.time()
-    foodSuggestions = {}
     
     # find current meal nutrients - this is used for visualizations
     mealNutrition = hash.mealNutrition(meal)
@@ -30,17 +29,13 @@ def runHash(meal):
     # find nutrients needed to improve meal
     neededNutrients = hash.neededNutrients(meal)
 
-    # run algorithm for both graph and hash 
-
+    # run suggestion algorithm 
+    foodSuggestions = hash.getSuggestions(neededNutrients)
 
     # return 5 suggested foods - END HASH TIME
-
-
     endTime = time.time()
     runTime = endTime - startTime #calculate runTime of hash 
     return runTime, foodSuggestions
-
-
 
 def runGraph(meal):
 # GRAPH - start time here
@@ -53,20 +48,15 @@ def runGraph(meal):
     neededNutrients = graph.neededNutrients(meal)
 
     # run algorithm for both graph and hash 
-
+    foodSuggestions = graph.getSuggestions(neededNutrients)
 
     # return 5 suggested foods - END HASH TIME
-
-
     endTime = time.time()
     runTime = endTime - startTime 
     return runTime, foodSuggestions
     
-
-
-
 def createPieChart(nutrients):
-    # this function will take in the meal nutrients as a SET and create a pie chart of meal balance of main macros (Protein, Carbs, Fats)
+    # this function will take in meal nutrients as a dict and create a pie chart of meal balance of main macros (Protein, Carbs, Fats)
     # format: 
 
     pass
