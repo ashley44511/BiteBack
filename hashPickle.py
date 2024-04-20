@@ -19,6 +19,7 @@ class HashTable:
         self.size = 0
         self.table = [None] * 7083
         # 7083 rows in the table
+
         
     # inserting into HT
     def insert(self, food, nutrition):
@@ -47,6 +48,26 @@ class HashTable:
         return self.table[index].nutrients
         # returning the entry itself. can alter to return only the nutrients
 
+    # determing how many user nutrients needs
+    def neededNutrients(self, meal, daily_intake):
+        # total nutrients in their meal
+        total = {}
+        for food in meal:
+            nutrition = self.search(food)
+            for nutrient, amount in nutrition.items():
+                if nutrient in total:
+                    total[nutrient] += amount
+                else:
+                    total[nutrient] = amount
+                    
+        # determining nutrients needed
+        needed = daily_intake
+        for food, amount in total.items():
+            needed[food] -= (amount)    
+        return needed
+        # returning a dictionary in format 'nutrient name: amount needed'
+
+
 
 if __name__ == "__main__":
     ht = HashTable()
@@ -58,6 +79,7 @@ if __name__ == "__main__":
             nutrition[nutrient] = amount
         ht.insert(food, nutrition)
 
+    
     # after hash data is loaded and saved
     with open("data/data_hash.pickle", "wb") as file:
         pickle.dump(ht, file) 
