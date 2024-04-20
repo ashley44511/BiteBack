@@ -32,6 +32,7 @@ if __name__ == "__main__":
 
 
     # develop data visualizations
+    createPieChart()
 
 
     # find nutrients needed to improve meal
