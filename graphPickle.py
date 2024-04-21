@@ -38,8 +38,14 @@ class Graph:
                 self.add_edge(food, nutrient, amount)
 
     def getFood(self, foodName):
-        # this returns the entire list of nodes to a food, which should be ALL nutrients
-        return self.adjList[foodName]
+        # this returns the entire list of nodes to a food as a dict, which should be ALL nutrients
+        adjList = self.adjList[foodName]
+        nutrients = {}
+        for nutrient in adjList:
+            nutrients[nutrient[0]] = nutrient[1]
+
+        return nutrients
+
     
     def getNutrient(self, foodName, nutrientName):
         #returns value of a specific nutrient for food

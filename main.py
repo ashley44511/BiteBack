@@ -80,10 +80,12 @@ if __name__ == "__main__":
     # each functions compares the time it took and the foods suggested by each data structure
     hashTime, hashSuggestions = runHash(input)
     graphTime, graphSuggestions = runGraph(input)
-    print("Hash RunTime: " + hashTime)
-    print("Hash Suggestions: " + hashSuggestions)
-    print("Graph RunTime: " + graphTime)
-    print("Graph Suggestions: " + graphSuggestions)
+    print("Hash RunTime: " + str(hashTime))
+    print("Hash Suggestions: ", end = "")
+    print(hashSuggestions)
+    print("Graph RunTime: " + str(graphTime))
+    print("Graph Suggestions: ", end = "")
+    print(graphSuggestions)
 
     #create visualizations
     #createPieChart(hash.mealNutrition(meal))

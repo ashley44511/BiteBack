@@ -51,8 +51,9 @@ class HashTable:
     def meal_nutrition(self, meal):
         # returns the base nutrition of an input meal
         total = {}
-        for food, servings in meal:
+        for food in meal:
             nutrition = self.search(food)
+            servings = meal[food]
             for nutrient, amount in nutrition.items():
                 if nutrient in total:
                     total[nutrient] += servings * amount
@@ -108,7 +109,7 @@ class HashTable:
                   "Lycopene", "Retinol", "Water", "Monosaturated Fat", "Polysaturated Fat"]
 
         # total nutrients in user meal
-        total = self.mealNutrition(meal)
+        total = self.meal_nutrition(meal)
                     
         # determining nutrients needed
         needed = daily_intake
