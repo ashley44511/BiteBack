@@ -1,6 +1,6 @@
 import pickle
-from dataCleaning import loadData
-df = loadData()
+# from dataCleaning import loadData - for pickling
+# df = loadData()
 
 # Referenced Geeks for Geeks for Hash Table implementation
 # https://www.geeksforgeeks.org/implementation-of-hash-table-in-python-using-separate-chaining/
@@ -114,22 +114,25 @@ class HashTable:
         # determining nutrients needed
         goal = {}
         needed = {}
-        for nutrient, value in daily_intake:
+        for nutrient in daily_intake:
             # divide daily value by 3 because this is one meal of 3 meals in a day
-            goal[nutrient] = value / 3
-            needed[nutrient] = value / 3
+            goal[nutrient] = daily_intake[nutrient] / 3
+            needed[nutrient] = daily_intake[nutrient] / 3
         
         for food, amount in total.items():
             needed[food] -= (amount)    
         return needed, goal # returning a dictionary in format 'nutrient name: amount needed'
     
-    def getSuggestions(self, neededNutrients):
+    def getSuggestions(self, neededNutrients, goalNutrients):
         # TODO
         # function to parse hash map and find 5 food suggestions to improve meal. 
         # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
         suggestions = []
 
         return suggestions
+
+""" 
+this code was used to pickle data from the csv file - no longer needed but here for documentation
 
 if __name__ == "__main__":
     ht = HashTable()
@@ -146,3 +149,6 @@ if __name__ == "__main__":
     with open("data/data_hash.pickle", "wb") as file:
         pickle.dump(ht, file) 
         print("Hash map successfully pickled!")
+
+        
+"""
