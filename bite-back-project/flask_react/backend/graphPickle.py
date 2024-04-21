@@ -151,16 +151,23 @@ class Graph:
         suggestions = []
         percentage = {}
         for nutrient in neededNutrients:
-            # determining top 5 needed by highest percentage needed 
-            percentage[nutrient] = neededNutrients[nutrient] / goalNutrients[nutrient]
+            # determining top 5 needed by highest percentage needed
+            if goalNutrients[nutrient] == 0:
+                pass  # don't store nutrients not needed or with goal met
+            elif (neededNutrients[nutrient] / goalNutrients[nutrient]) < 0:
+                pass
+            else:
+                percentage[nutrient] = neededNutrients[nutrient] / goalNutrients[nutrient]
 
-        #sorts lowest to highest percentage
-        sortedPercentage = dict(sorted(percentage.items(), key=lambda item: item[1]))
+        # sorts highest to lowest percentage (highest percentage means highest amount still needed)
+        sortedPercentage = dict(sorted(percentage.items(), key=lambda item: item[1], reverse=True))
         top_5_needed = list(sortedPercentage.items())[:5] #dictionary with nutrient name : % amount needed
 
-        for nutrient in top_5_needed:
+        top_5_dict = {}
+        for i in top_5_needed:
             # change back to numerical from percentage needed
-            top_5_needed[nutrient] = neededNutrients[nutrient]
+            foodName = i[0]
+            top_5_dict[foodName] = neededNutrients[foodName]
 
         # find foods that meet top_5_needed
         for nutrient, amount in top_5_needed:
