@@ -1,9 +1,6 @@
 <H1> COP3530 - Project 3 </h1>
 This is the template for Project 3 repositories. It includes all the assignment instructions and documentation to help you use GitHub.
 
-<p>Proposal: https://docs.google.com/document/d/1n-0uhMOCrZ74qeJcQnSx6GGP20M0qRgrIPWWQG3i-1M/edit?usp=sharing</p>
-<p>Planning: https://docs.google.com/document/d/16jeHNHj802-zguv49YW67QjcspoXpWC0BTI9WfnULJI/edit?usp=sharing</p>
-<p>Data sources: https://think.cs.vt.edu/corgis/csv/food/ https://think.cs.vt.edu/corgis/python/food/</p>
 <h2> Table of Contents </h2>
 
 - [Documentation and resources on how to use GitHub for Project 3](#documentation-and-resources-on-how-to-use-github-for-project-3)
