@@ -57,22 +57,21 @@ Button Design from: https://www.w3schools.com/css/tryit.asp?filename=trycss_butt
   border-radius: 12px;
 }
 
-.funFactContainer {
+.funFactContainer div {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50%;
-  width: 50%;
+  height: 100%;
+  width: 100%;
 }
 
 .funFactImage img {
-  object-fit: contain;
+  width: 80%;
   float: left;
+  padding-top: 10%;
 }
 
-.funFactText h2 {
-  color: green;
-  font-size: 20px;
+.funFactText div {
   float: left;
   padding-left: 20px;
   padding-top: 20%;
@@ -81,6 +80,10 @@ Button Design from: https://www.w3schools.com/css/tryit.asp?filename=trycss_butt
 .funFactText p {
   color: black;
   font-size: 16px;
-  float: left;
   padding-left: 20px;
+}
+
+.funFactText h2 {
+  color: green;
+  font-size: 20px;
 }
