@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### React and Flask Tutorials Used
+https://www.w3schools.com/react/react_forms.asp
+https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project
+https://avionmission.hashnode.dev/how-to-use-python-code-in-your-react-app-react-flask-tutorial
+https://www.youtube.com/watch?v=6r_QBgq-seA
+https://dev.to/nagatodev/how-to-connect-flask-to-reactjs-1k8i
+
+### To set up virtual environment and react
+Open terminal, cd to flask_react
+npm install
+npm start
+The frontend is now running! Hit ctrl + C to quit
+Open terminal, cd to backend
+For mac/unix users: python3 -m venv env
+For windows users: py -m venv env
+A virtual environment was created. Activate by:
+For mac/unix users: source env/bin/activate
+For windows users: .\env\Scripts\activate
+In active virtual environment, should have (env) before your name in the terminal. Install these.
+pip install flask
+pip install python-dotenv
+When you want to run the backend, cd to backend, activate the virtual environment, and command flask run
+
