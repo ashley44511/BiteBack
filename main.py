@@ -68,7 +68,7 @@ def createPieChart(nutrients):
     labels = list(data.keys())
     values = list(data.values())
     fig = px.pie(values=values, names=labels, title='Input Meal Macronutrient Distribution')
-    fig.show() 
+    fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg")
 
 if __name__ == "__main__":
     # get input from website
@@ -83,3 +83,5 @@ if __name__ == "__main__":
 
     #create visualizations
     createPieChart(hash.mealNutrition(meal))
+
+    # send charts, time, and food suggestions to back end 
