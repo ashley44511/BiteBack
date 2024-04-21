@@ -3,7 +3,7 @@ import pickle
 from graphPickle import Graph
 from hashPickle import HashTable
 from hashPickle import Entry
-import plotly
+import plotly.express as px
 import time
 
 # script with algorithms
@@ -57,9 +57,18 @@ def runGraph(meal):
     
 def createPieChart(nutrients):
     # this function will take in meal nutrients as a dict and create a pie chart of meal balance of main macros (Protein, Carbs, Fats)
-    # format: 
+    # reference: https://plotly.com/python/pie-charts/
 
-    pass
+    # only keep macronutrients (protein, carbs, fats)
+    data = []
+    data["Protein"] = nutrients["Protein"]
+    data["Carbohydrates"] = nutrients["Carbohydrates"]
+    data["Fat"] = nutrients["Total Lipid"]
+
+    labels = list(data.keys())
+    values = list(data.values())
+    fig = px.pie(values=values, names=labels, title='Input Meal Macronutrient Distribution')
+    fig.show() 
 
 if __name__ == "__main__":
     # get input from website
@@ -73,3 +82,4 @@ if __name__ == "__main__":
     grapTtime, graphSuggestions = runGraph(input)
 
     #create visualizations
+    createPieChart(hash.mealNutrition(meal))
