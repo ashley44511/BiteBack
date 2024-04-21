@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from main import Main 
+from main import Main
+from graphPickle import Graph
+from hashPickle import HashTable 
 
 api = Flask(__name__)
 CORS(api)
