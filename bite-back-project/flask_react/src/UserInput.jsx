@@ -17,7 +17,7 @@ function UserInput() {
     food3Serving: "3",
     food4Name: "Carne Asada",
     food4Serving: "4",
-    food5Name: "Rice",
+    food5Name: "Rice and Beans",
     food5Serving: "5",
   });
   const [profileData, setProfileData] = useState(null);
@@ -67,31 +67,106 @@ function UserInput() {
   };
 
   return (
-    <div>
+    <div className="uiDesign">
       <form onSubmit={handleSubmit}>
-        <label>
-          Food1 Name
-          <input type="text" value={uiData.food1Name} onChange={handleChange} />
-        </label>
-        <p>Input Value: {uiData.food1Name}</p>
-        <label>
-          Food1 Serving
-          <input
-            type="text"
-            value={uiData.food1Serving}
-            onChange={handleChange}
-          />
-        </label>
-        <p>Input Value: {uiData.food1Serving}</p>
-        <button type="submit">SubmitTest</button>
-        {profileData && (
+        <table>
+          <td>
+          <label>
+            Food1 Name
+            <input type="text" value={uiData.food1Name} onChange={handleChange} />
+          </label>
+          <p>Input Value: {uiData.food1Name}</p>
+          <label>
+            Food1 Serving
+            <input
+              type="text"
+              value={uiData.food1Serving}
+              onChange={handleChange}
+            />
+          </label>
+          <p>Input Value: {uiData.food1Serving}</p>
+          </td>
+
+          <td>
+          <label>
+            Food2 Name
+            <input type="text" value={uiData.food2Name} onChange={handleChange} />
+          </label>
+          <p>Input Value: {uiData.food2Name}</p>
+          <label>
+            Food2 Serving
+            <input
+              type="text"
+              value={uiData.food2Serving}
+              onChange={handleChange}
+            />
+          </label>
+          <p>Input Value: {uiData.food2Serving}</p>
+          </td>
+
+          <td>
+            <label>
+            Food3 Name
+            <input type="text" value={uiData.food3Name} onChange={handleChange} />
+          </label>
+          <p>Input Value: {uiData.food3Name}</p>
+          <label>
+            Food3 Serving
+            <input
+              type="text"
+              value={uiData.food3Serving}
+              onChange={handleChange}
+            />
+          </label>
+          <p>Input Value: {uiData.food3Serving}</p>
+          </td>
+
+          <td>
+            <label>
+            Food4 Name
+            <input type="text" value={uiData.food4Name} onChange={handleChange} />
+          </label>
+          <p>Input Value: {uiData.food4Name}</p>
+          <label>
+            Food4 Serving
+            <input
+              type="text"
+              value={uiData.food4Serving}
+              onChange={handleChange}
+            />
+          </label>
+          <p>Input Value: {uiData.food4Serving}</p>
+          </td>
+
+          <td>
+            <label>
+            Food5 Name
+            <input type="text" value={uiData.food5Name} onChange={handleChange} />
+          </label>
+          <p>Input Value: {uiData.food5Name}</p>
+          <label>
+            Food5 Serving
+            <input
+              type="text"
+              value={uiData.food5Serving}
+              onChange={handleChange}
+            />
+          </label>
+          <p>Input Value: {uiData.food5Serving}</p>
+          </td>
+        </table>
+      
+        
+        
+        <button type="submit">Submit</button>
+      </form>
+      {profileData && (
           <div>
             <p>Profile name: {profileData.profile_name}</p>
             <p>About me: {profileData.about_me}</p>
             <p>Result: {profileData.result}</p>
           </div>
         )}
-      </form>
     </div>
   );
 }

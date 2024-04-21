@@ -4,6 +4,7 @@ import "./App.css";
 
 import UserInput from "./UserInput"; //five foods user input
 import FormFood from "./FormFood";
+import FunFact from "./FunFact";
 //other components to add: header, food fact, footer
 
 function App() {
@@ -50,14 +51,8 @@ function App() {
         {/* new line start*/}
         <p>Enter items from your meal below:</p>
         <UserInput />
-        <button onClick={getData}>Submit</button>
-        {profileData && (
-          <div>
-            <p>Profile name: {profileData.profile_name}</p>
-            <p>About me: {profileData.about_me}</p>
-          </div>
-        )}
         {/* end of new line */}
+        <FunFact />
       </header>
     </div>
   );
