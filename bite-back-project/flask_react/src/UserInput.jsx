@@ -195,13 +195,13 @@ function UserInput() {
         <button type="submit">Submit</button>
       </form>
       {profileData && (
-        <div>
-          <p>Profile name: {profileData.profile_name}</p>
-          <p>About me: {profileData.about_me}</p>
-          <p>Result: {profileData.result}</p>
-          <p>graphTime: {profileData.graphTime}</p>
-        </div>
-      )}
+          <div>
+            <p>Profile name: {profileData.profile_name}</p>
+            <p>About me: {profileData.about_me}</p>
+            <p>Result: {profileData.result}</p>
+            <p>graphTime: {profileData.graphTime}</p>
+          </div>
+        )}
     </div>
   );
 }

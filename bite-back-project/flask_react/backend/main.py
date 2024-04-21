@@ -30,10 +30,10 @@ class Main:
         mealNutrition = self.hash.meal_nutrition(meal)
 
         # find nutrients needed to improve meal
-        neededNutrients = self.hash.needed_nutrients(meal)
+        neededNutrients, goalNutrients = self.hash.needed_nutrients(meal)
 
         # run suggestion algorithm 
-        foodSuggestions = self.hash.getSuggestions(neededNutrients)
+        foodSuggestions = self.hash.getSuggestions(neededNutrients, goalNutrients)
 
         # return 5 suggested foods - END HASH TIME
         endTime = time.time()
@@ -48,10 +48,10 @@ class Main:
         mealNutrition = self.graph.mealNutrition(meal)
 
         # find nutrients needed to improve meal
-        neededNutrients = self.graph.neededNutrients(meal)
+        neededNutrients, goalNutrients = self.graph.neededNutrients(meal)
 
         # run algorithm for both graph and hash 
-        foodSuggestions = self.graph.getSuggestions(neededNutrients)
+        foodSuggestions = self.graph.getSuggestions(neededNutrients, goalNutrients)
 
         # return 5 suggested foods - END HASH TIME
         endTime = time.time()
