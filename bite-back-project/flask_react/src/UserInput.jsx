@@ -166,7 +166,7 @@ function UserInput() {
             <p>Profile name: {profileData.profile_name}</p>
             <p>About me: {profileData.about_me}</p>
             <p>Result: {profileData.result}</p>
-            <p>graphTime: {profileData.graphTime}</p>
+            <p>Graph run time: {profileData.graphTime}</p>
           </div>
         )}
     </div>

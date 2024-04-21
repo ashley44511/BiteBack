@@ -1,5 +1,6 @@
 import pickle
 from dataCleaning import loadData
+import random
 
 
 # adjacency list in python inspiration: https://www.programiz.com/dsa/graph-adjacency-list
@@ -37,15 +38,25 @@ class Graph:
                 self.add_edge(food, nutrient, amount)
 
     def getFood(self, foodName):
-        # this returns the entire list of nodes to a food as a dict, which should be ALL nutrients
+        # this returns the entire list of edges to a food as a dict, which should be ALL nutrients
         adjList = self.adjList[foodName]
         nutrients = {}
         for nutrient in adjList:
             nutrients[nutrient[0]] = nutrient[1]
 
         return nutrients
-
     
+    def getHighestNutrientFoods(self, nutrientName, amountNeeded):
+        # this returns all foods that contain the amount of a nutrient needed
+        # this dict contains foods with the highest amount of the input nutrient
+        adjList = self.adjList[nutrientName]
+        goalFoods = {}
+        for food in adjList:
+            if food[1] == amountNeeded:
+                goalFoods[food[0]] = food[1]
+         
+        return goalFoods
+
     def getNutrient(self, foodName, nutrientName):
         #returns value of a specific nutrient for food
         nutrients = self.getFood(foodName)
@@ -118,24 +129,44 @@ class Graph:
         mealNutrition = self.mealNutrition(meal)
 
         # determine nutrients needed
-        needed = daily_intake
+        goal = {}
+        needed = {}
+        for nutrient, value in daily_intake:
+            # divide daily value by 3 because this is one meal of 3 meals in a day
+            goal[nutrient] = value / 3
+            needed[nutrient] = value / 3
+
         for nutrient, amount in mealNutrition.items():
             needed[nutrient] -= (amount)
-        return needed # returning a dictionary in format 'nutrient name: amount needed'
+        return needed, goal # returning dictionaries in format 'nutrient name: amount needed'
 
     def print_graph(self):
         # Print the graph - used to check proper loading
         for key, value in self.adjList.items():
             print(f"{key}: {value}")
 
-    def getSuggestions(self, neededNutrients):
+    def getSuggestions(self, neededNutrients, goalNutrients):
     # TODO
     # function to parse graph and find 5 food suggestions to improve meal. 
     # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
         suggestions = []
+        percentage = {}
+        for nutrient, amount in neededNutrients:
+            # determining top 5 needed by highest percentage needed 
+            percentage[nutrient] = amount / goalNutrients[nutrient]
 
+        #sorts lowest to highest percentage
+        sortedPercentage = dict(sorted(percentage.items(), key=lambda item: item[1]))
+        top_5_needed = list(sorted_dict.items())[:5] #dictionary with nutrient name : % amount needed
 
-    
+        for nutrient in top_5_needed:
+            # change back to numerical from percentage needed
+            top_5_needed[nutrient] = neededNutrients[nutrient]
+
+        # find foods that meet top_5_needed
+        for nutrient, amount in top_5_needed:
+            suggestions += random.sample(self.getHighestNutrientFoods(nutrient, amount), 1)
+            
         return suggestions  
 
 if __name__ == "__main__":
