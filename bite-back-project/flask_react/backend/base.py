@@ -1,12 +1,13 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import main
+from main import Main 
 
 api = Flask(__name__)
 CORS(api)
 
 @api.route('/profile/', methods=['POST'])
 def my_profile():
+    main = Main()
     graphTime = main.mainImportVersion()
     response_body = {
         "name": "Nagato",
