@@ -55,6 +55,7 @@ function UserInput() {
           profile_name: res.name,
           about_me: res.about,
           result: res.result,
+          graphTime: res.graphTime
         });
       })
       .catch((error) => {
@@ -165,6 +166,7 @@ function UserInput() {
             <p>Profile name: {profileData.profile_name}</p>
             <p>About me: {profileData.about_me}</p>
             <p>Result: {profileData.result}</p>
+            <p>graphTime: {profileData.graphTime}</p>
           </div>
         )}
     </div>

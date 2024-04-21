@@ -71,6 +71,30 @@ def createPieChart(nutrients):
     fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg")
     return
 
+def mainImportVersion():
+    # get input from website
+    # TODO
+
+    input = {"Cuban sandwich, with spread" : 1, "Milk, whole" : 2}   # example input for now format food : num servings
+
+    # each functions compares the time it took and the foods suggested by each data structure
+    hashTime, hashSuggestions = runHash(input)
+    graphTime, graphSuggestions = runGraph(input)
+    print("Hash RunTime: " + str(hashTime))
+    print("Hash Suggestions: ", end = "")
+    print(hashSuggestions)
+    print("Graph RunTime: " + str(graphTime))
+    print("Graph Suggestions: ", end = "")
+    print(graphSuggestions)
+
+    #return hash runtime, graph runtime, graph suggestions, hash suggestions
+    return graphTime
+
+    #create visualizations
+    #createPieChart(hash.mealNutrition(meal))
+
+    # send charts, time, and food suggestions to back end 
+
 if __name__ == "__main__":
     # get input from website
     # TODO
