@@ -4,6 +4,7 @@ from graphPickle import Graph
 from hashPickle import HashTable
 from hashPickle import Entry
 import plotly.express as px
+import plotly.io as pio
 import time
 
 # script with algorithms
@@ -68,7 +69,8 @@ def createPieChart(nutrients):
     labels = list(data.keys())
     values = list(data.values())
     fig = px.pie(values=values, names=labels, title='Input Meal Macronutrient Distribution', color_discrete_sequence=px.colors.diverging.Fall)
-    fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg", engine="orca")
+    pio.write_image(fig, "../public/macro_pie_chart.jpg")
+    #fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg", engine="plotly")
     return
 
 def mainImportVersion():
