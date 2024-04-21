@@ -60,15 +60,15 @@ def createPieChart(nutrients):
     # reference: https://plotly.com/python/pie-charts/
 
     # only keep macronutrients (protein, carbs, fats)
-    data = []
+    data = {}
     data["Protein"] = nutrients["Protein"]
-    data["Carbohydrates"] = nutrients["Carbohydrates"]
+    data["Carbohydrates"] = nutrients["Carbohydrate"]
     data["Fat"] = nutrients["Total Lipid"]
 
     labels = list(data.keys())
     values = list(data.values())
-    fig = px.pie(values=values, names=labels, title='Input Meal Macronutrient Distribution')
-    fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg")
+    fig = px.pie(values=values, names=labels, title='Input Meal Macronutrient Distribution', color_discrete_sequence=px.colors.diverging.Fall)
+    fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg", engine="orca")
     return
 
 def mainImportVersion():
@@ -111,7 +111,8 @@ if __name__ == "__main__":
     print("Graph Suggestions: ", end = "")
     print(graphSuggestions)
 
-    #create visualizations
-    #createPieChart(hash.mealNutrition(meal))
+    # create visualizations
+    # macro pie chart
+    createPieChart(hash.meal_nutrition(input))
 
-    # send charts, time, and food suggestions to back end 
+    # send charts, time, and food suggestions to front end
