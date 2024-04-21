@@ -24,10 +24,10 @@ def runHash(meal):
     startTime = time.time()
     
     # find current meal nutrients - this is used for visualizations
-    mealNutrition = hash.mealNutrition(meal)
+    mealNutrition = hash.meal_nutrition(meal)
 
     # find nutrients needed to improve meal
-    neededNutrients = hash.neededNutrients(meal)
+    neededNutrients = hash.needed_nutrients(meal)
 
     # run suggestion algorithm 
     foodSuggestions = hash.getSuggestions(neededNutrients)
@@ -69,19 +69,23 @@ def createPieChart(nutrients):
     values = list(data.values())
     fig = px.pie(values=values, names=labels, title='Input Meal Macronutrient Distribution')
     fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg")
+    return
 
 if __name__ == "__main__":
     # get input from website
     # TODO
 
-    input = "Cuban sandwich, with spread"   # example input for now
-    meal = [input]
+    input = {"Cuban sandwich, with spread" : 1, "Milk, whole" : 2}   # example input for now format food : num servings
 
     # each functions compares the time it took and the foods suggested by each data structure
-    hashTime, hashSuggestions = runHash(input) 
-    grapTtime, graphSuggestions = runGraph(input)
+    hashTime, hashSuggestions = runHash(input)
+    graphTime, graphSuggestions = runGraph(input)
+    print("Hash RunTime: " + hashTime)
+    print("Hash Suggestions: " + hashSuggestions)
+    print("Graph RunTime: " + graphTime)
+    print("Graph Suggestions: " + graphSuggestions)
 
     #create visualizations
-    createPieChart(hash.mealNutrition(meal))
+    #createPieChart(hash.mealNutrition(meal))
 
     # send charts, time, and food suggestions to back end 

@@ -48,20 +48,20 @@ class HashTable:
         return self.table[index].nutrients
         # returning the only the nutrients
 
-    def mealNutrition(self, meal):
+    def meal_nutrition(self, meal):
         # returns the base nutrition of an input meal
         total = {}
-        for food in meal:
+        for food, servings in meal:
             nutrition = self.search(food)
             for nutrient, amount in nutrition.items():
                 if nutrient in total:
-                    total[nutrient] += amount
+                    total[nutrient] += servings * amount
                 else:
-                    total[nutrient] = amount
+                    total[nutrient] = servings * amount
         return total
 
     # determing how many user nutrients needs
-    def neededNutrients(self, meal):
+    def needed_nutrients(self, meal):
         # recommended daily intake of nutrients. taken from
         # https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
         # initiated as dictionary of form 'nutrient name: amount"
