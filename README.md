@@ -4,6 +4,10 @@
 <p>Planning: https://docs.google.com/document/d/16jeHNHj802-zguv49YW67QjcspoXpWC0BTI9WfnULJI/edit?usp=sharing</p>
 <p>Data sources: https://think.cs.vt.edu/corgis/csv/food/ https://think.cs.vt.edu/corgis/python/food/</p>
 
+Before running any scripts (especially main.py), please use the following commands:
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
 
 <h2>To run through the UI:</h2>
 
