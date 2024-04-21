@@ -27,9 +27,10 @@ function UserInput() {
   //add object that prints out submitted data
 
   const handleChange = (event) => {
-    const value = event.target.value;
+    const { name, value } = event.target;
     setUIData({
-      [event.target.name]: value,
+      ...uiData,
+      [name]: value,
     });
   };
 
@@ -55,7 +56,7 @@ function UserInput() {
           profile_name: res.name,
           about_me: res.about,
           result: res.result,
-          graphTime: res.graphTime
+          graphTime: res.graphTime,
         });
       })
       .catch((error) => {
@@ -71,104 +72,136 @@ function UserInput() {
     <div className="uiDesign">
       <form onSubmit={handleSubmit}>
         <table>
-          <td>
-          <label>
-            Food1 Name
-            <input type="text" value={uiData.food1Name} onChange={handleChange} />
-          </label>
-          <p>Input Value: {uiData.food1Name}</p>
-          <label>
-            Food1 Serving
-            <input
-              type="text"
-              value={uiData.food1Serving}
-              onChange={handleChange}
-            />
-          </label>
-          <p>Input Value: {uiData.food1Serving}</p>
-          </td>
+          <tbody>
+            <tr>
+              <td>
+                <label>
+                  Food1 Name
+                  <input
+                    type="text"
+                    name="food1Name"
+                    value={uiData.food1Name}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food1Name}</p>
+                <label>
+                  Food1 Serving
+                  <input
+                    type="text"
+                    name="food1Serving"
+                    value={uiData.food1Serving}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food1Serving}</p>
+              </td>
 
-          <td>
-          <label>
-            Food2 Name
-            <input type="text" value={uiData.food2Name} onChange={handleChange} />
-          </label>
-          <p>Input Value: {uiData.food2Name}</p>
-          <label>
-            Food2 Serving
-            <input
-              type="text"
-              value={uiData.food2Serving}
-              onChange={handleChange}
-            />
-          </label>
-          <p>Input Value: {uiData.food2Serving}</p>
-          </td>
+              <td>
+                <label>
+                  Food2 Name
+                  <input
+                    type="text"
+                    name="food2Name"
+                    value={uiData.food2Name}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food2Name}</p>
+                <label>
+                  Food2 Serving
+                  <input
+                    type="text"
+                    name="food2Serving"
+                    value={uiData.food2Serving}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food2Serving}</p>
+              </td>
 
-          <td>
-            <label>
-            Food3 Name
-            <input type="text" value={uiData.food3Name} onChange={handleChange} />
-          </label>
-          <p>Input Value: {uiData.food3Name}</p>
-          <label>
-            Food3 Serving
-            <input
-              type="text"
-              value={uiData.food3Serving}
-              onChange={handleChange}
-            />
-          </label>
-          <p>Input Value: {uiData.food3Serving}</p>
-          </td>
+              <td>
+                <label>
+                  Food3 Name
+                  <input
+                    type="text"
+                    name="food3Name"
+                    value={uiData.food3Name}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food3Name}</p>
+                <label>
+                  Food3 Serving
+                  <input
+                    type="text"
+                    name="food3Serving"
+                    value={uiData.food3Serving}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food3Serving}</p>
+              </td>
 
-          <td>
-            <label>
-            Food4 Name
-            <input type="text" value={uiData.food4Name} onChange={handleChange} />
-          </label>
-          <p>Input Value: {uiData.food4Name}</p>
-          <label>
-            Food4 Serving
-            <input
-              type="text"
-              value={uiData.food4Serving}
-              onChange={handleChange}
-            />
-          </label>
-          <p>Input Value: {uiData.food4Serving}</p>
-          </td>
+              <td>
+                <label>
+                  Food4 Name
+                  <input
+                    type="text"
+                    name="food4Name"
+                    value={uiData.food4Name}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food4Name}</p>
+                <label>
+                  Food4 Serving
+                  <input
+                    type="text"
+                    name="food4Serving"
+                    value={uiData.food4Serving}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food4Serving}</p>
+              </td>
 
-          <td>
-            <label>
-            Food5 Name
-            <input type="text" value={uiData.food5Name} onChange={handleChange} />
-          </label>
-          <p>Input Value: {uiData.food5Name}</p>
-          <label>
-            Food5 Serving
-            <input
-              type="text"
-              value={uiData.food5Serving}
-              onChange={handleChange}
-            />
-          </label>
-          <p>Input Value: {uiData.food5Serving}</p>
-          </td>
+              <td>
+                <label>
+                  Food5 Name
+                  <input
+                    type="text"
+                    name="food5Name"
+                    value={uiData.food5Name}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food5Name}</p>
+                <label>
+                  Food5 Serving
+                  <input
+                    type="text"
+                    name="food5Serving"
+                    value={uiData.food5Serving}
+                    onChange={handleChange}
+                  />
+                </label>
+                <p>Input Value: {uiData.food5Serving}</p>
+              </td>
+            </tr>
+          </tbody>
         </table>
-      
-        
-        
+
         <button type="submit">Submit</button>
       </form>
       {profileData && (
-          <div>
-            <p>Profile name: {profileData.profile_name}</p>
-            <p>About me: {profileData.about_me}</p>
-            <p>Result: {profileData.result}</p>
-            <p>graphTime: {profileData.graphTime}</p>
-          </div>
-        )}
+        <div>
+          <p>Profile name: {profileData.profile_name}</p>
+          <p>About me: {profileData.about_me}</p>
+          <p>Result: {profileData.result}</p>
+          <p>graphTime: {profileData.graphTime}</p>
+        </div>
+      )}
     </div>
   );
 }
