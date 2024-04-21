@@ -1,5 +1,5 @@
 import pickle
-from dataCleaning import loadData
+# from dataCleaning import loadData - for pickling
 import random
 
 
@@ -131,10 +131,10 @@ class Graph:
         # determine nutrients needed
         goal = {}
         needed = {}
-        for nutrient, value in daily_intake:
+        for nutrient in daily_intake:
             # divide daily value by 3 because this is one meal of 3 meals in a day
-            goal[nutrient] = value / 3
-            needed[nutrient] = value / 3
+            goal[nutrient] = daily_intake[nutrient] / 3
+            needed[nutrient] = daily_intake[nutrient] / 3
 
         for nutrient, amount in mealNutrition.items():
             needed[nutrient] -= (amount)
@@ -146,18 +146,17 @@ class Graph:
             print(f"{key}: {value}")
 
     def getSuggestions(self, neededNutrients, goalNutrients):
-    # TODO
     # function to parse graph and find 5 food suggestions to improve meal. 
     # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
         suggestions = []
         percentage = {}
-        for nutrient, amount in neededNutrients:
+        for nutrient in neededNutrients:
             # determining top 5 needed by highest percentage needed 
-            percentage[nutrient] = amount / goalNutrients[nutrient]
+            percentage[nutrient] = neededNutrients[nutrient] / goalNutrients[nutrient]
 
         #sorts lowest to highest percentage
         sortedPercentage = dict(sorted(percentage.items(), key=lambda item: item[1]))
-        top_5_needed = list(sorted_dict.items())[:5] #dictionary with nutrient name : % amount needed
+        top_5_needed = list(sortedPercentage.items())[:5] #dictionary with nutrient name : % amount needed
 
         for nutrient in top_5_needed:
             # change back to numerical from percentage needed
@@ -168,6 +167,10 @@ class Graph:
             suggestions += random.sample(self.getHighestNutrientFoods(nutrient, amount), 1)
             
         return suggestions  
+
+"""
+
+# this code was used to pickle the data from the dataframe - not needed anymore
 
 if __name__ == "__main__":
     # Create graph, Load DF, and insert nodes/edges
@@ -188,5 +191,5 @@ if __name__ == "__main__":
     with open("data/data_graph.pickle", "wb") as file:
         pickle.dump(graph, file)
         print ("Graph successfully pickled!")
-
+"""
     
