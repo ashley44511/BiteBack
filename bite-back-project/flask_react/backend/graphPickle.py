@@ -1,5 +1,5 @@
 import pickle
-# from dataCleaning import loadData - for pickling
+from dataCleaning import loadData 
 import random
 
 
@@ -171,11 +171,10 @@ class Graph:
 
         # find foods that meet top_5_needed
         for nutrient, amount in top_5_needed:
-            suggestions += random.sample(self.getHighestNutrientFoods(nutrient, amount), 1)
+            suggestions += random.sample(list(self.getHighestNutrientFoods(nutrient, amount).keys()), 1)
             
         return suggestions  
 
-"""
 
 # this code was used to pickle the data from the dataframe - not needed anymore
 
@@ -198,5 +197,4 @@ if __name__ == "__main__":
     with open("data/data_graph.pickle", "wb") as file:
         pickle.dump(graph, file)
         print ("Graph successfully pickled!")
-"""
     
