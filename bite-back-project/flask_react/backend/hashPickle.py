@@ -66,27 +66,27 @@ class HashTable:
         # https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
         # initiated as dictionary of form 'nutrient name: amount"
         daily_intake = {
-            "Alpha_Carotene": 0,
-            "Beta_Carotene": 0,
-            "Beta_Cryptoxanthin": 0,
+            "Alpha Carotene": 0,
+            "Beta Carotene": 0,
+            "Beta Cryptoxanthin": 0,
             "Carbohydrate": 275,
             "Cholesterol": 300,
             "Choline": 2300,
             "Fiber": 28,
-            "Lutein_and_Zeaxanthin": 0,
+            "Lutein and Zeaxanthin": 0,
             "Lycopene": 0,
             "Niacin": 16,
             "Protein": 50,
             "Retinol": 0,
             "Riboflavin": 1.3,
             "Selenium": 55,
-            "Sugar_Total": 50,
+            "Sugar Total": 50,
             "Thiamin": 1.2,
             "Water": 0,
-            "Monosaturated_Fat": 0,
-            "Polysaturated_Fat": 0,
-            "Saturated_Fat": 20,
-            "Total_Lipid": 78,
+            "Monosaturated Fat": 0,
+            "Polysaturated Fat": 0,
+            "Saturated Fat": 20,
+            "Total Lipid": 78,
             "Calcium": 1300,
             "Copper": 0.9,
             "Iron": 18,
@@ -95,12 +95,12 @@ class HashTable:
             "Potassium": 4700,
             "Sodium": 2300,
             "Zinc": 11,
-            "Vitamin_A_RAE": 900,
-            "Vitamin_B12": 2.4,
-            "Vitamin_B6": 1.7,
-            "Vitamin_C": 90,
-            "Vitamin_E": 15,
-            "Vitamin_K": 120
+            "Vitamin A - RAE": 900,
+            "Vitamin B12": 2.4,
+            "Vitamin B6": 1.7,
+            "Vitamin C": 90,
+            "Vitamin E": 15,
+            "Vitamin K": 120
         }
 
         # total nutrients in user meal
@@ -119,8 +119,8 @@ class HashTable:
         sorted_nutrients = {key: value for key, value in sorted(neededNutrients.items(), key=lambda item: item[1], reverse=True)}
         
         # nutrients in the dataset that didn't have daily recommendations 
-        irrelevant = ["Alpha_Carotene", "Beta_Carotene", "Beta_Cryptoxanthin", "Lutein_and_Zeaxanthin", 
-                  "Lycopene", "Retinol", "Water", "Monosaturated_Fat", "Polysaturated_Fat"]
+        irrelevant = ["Alpha Carotene", "Beta Carotene", "Beta Cryptoxanthin", "Lutein and Zeaxanthin", 
+                  "Lycopene", "Retinol", "Water", "Monosaturated Fat", "Polysaturated Fat"]
         
         suggestions = {}
         i = 0
