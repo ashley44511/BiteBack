@@ -130,6 +130,22 @@ class HashTable:
         suggestions = []
 
         return suggestions
+    
+def pickleHash():
+    ht = HashTable()
+    # iterate through each row of dataframe and store food name + nutritional content
+    for index, row, in df.iterrows():
+        food = row.iloc[0]
+        nutrition = {}
+        for nutrient, amount in zip(df.columns[1:], row.iloc[1:]):
+            nutrition[nutrient] = amount
+        ht.insert(food, nutrition)
+
+     
+    # after hash data is loaded and saved
+    with open("data/data_hash.pickle", "wb") as file:
+        pickle.dump(ht, file) 
+        print("Hash map successfully pickled!")
 
 """ 
 this code was used to pickle data from the csv file - no longer needed but here for documentation

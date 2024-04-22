@@ -2,7 +2,7 @@
 import pickle
 import os
 from graphPickle import Graph, pickleGraph
-from hashPickle import HashTable
+from hashPickle import HashTable, pickleHash
 from hashPickle import Entry
 import plotly.express as px
 import plotly.io as pio
@@ -36,6 +36,14 @@ class Main:
         with open(os.path.abspath("data/data_graph.pickle"), "rb") as graphFile:
             self.graph = pickle.load(graphFile)
         graphFile.close()
+
+    def pickleNewHash(self):
+        pickleHash()
+
+    def unpickleHash(self):
+        with open(os.path.abspath("data/data_hash.pickle"), "rb") as hashFile:
+            self.graph = pickle.load(hashFile)
+        hashFile.close()
 
     def runHash(self, meal):
         # HASH - start time here
@@ -97,7 +105,7 @@ class Main:
         input = {"Cuban sandwich, with spread" : 1, "Milk, whole" : 2}   # example input for now format food : num servings
 
         # each functions compares the time it took and the foods suggested by each data structure
-        # hashTime, hashSuggestions = self.runHash(input)
+        #hashTime, hashSuggestions = self.runHash(input)
         graphTime, graphSuggestions = self.runGraph(input)
         #print("Hash RunTime: " + str(hashTime))
         #print("Hash Suggestions: ", end = "")
@@ -107,7 +115,7 @@ class Main:
         print(graphSuggestions)
 
         #return hash runtime, graph runtime, graph suggestions, hash suggestions
-        return graphTime
+        return graphTime, graphSuggestions
 
         #create visualizations
         #createPieChart(hash.mealNutrition(meal))
@@ -117,14 +125,37 @@ class Main:
 
 @api.route('/profile/', methods=['POST'])
 def my_profile():
+    food1Name = request.json['food1Name']
+    food1Serving = request.json['food1Serving']
+    food2Name = request.json['food2Name']
+    food2Serving = request.json['food2Serving']
+    food3Name = request.json['food3Name']
+    food3Serving = request.json['food3Serving']
+    food4Name = request.json['food4Name']
+    food4Serving = request.json['food4Serving']
+    food5Name = request.json['food5Name']
+    food5Serving = request.json['food5Serving']
+    input = {food1Name: food1Serving, food2Name: food2Serving, food3Name: food3Serving, food4Name: food4Serving, food5Name: food5Serving}
+
     main = Main()
-    graphTime = main.mainImportVersion()
+    #hashTime, hashSuggestions
+    graphTime, graphSuggestions = main.mainImportVersion()
     response_body = {
-        "name": "Nagato",
-        "about": "Hello! I'm a full stack developer that loves python and javascript",
-        "result": request.json['food1Name'],
-        "graphTime": graphTime
+        "suggestion1G": graphSuggestions[0],
+        "suggestion2G": graphSuggestions[1],
+        "suggestion3G": graphSuggestions[2],
+        "suggestion4G": graphSuggestions[3],
+        "suggestion5G": graphSuggestions[4],
+        "graphTime": graphTime,
     }
+    """
+    "suggestion1H": hashSuggestions[0],
+        "suggestion2H": hashSuggestions[1],
+        "suggestion3H": hashSuggestions[2],
+        "suggestion4H": hashSuggestions[3],
+        "suggestion5H": hashSuggestions[4],
+        "hashTime": hashTime,
+    """
 
     return response_body
 

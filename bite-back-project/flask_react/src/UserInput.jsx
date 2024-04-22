@@ -9,15 +9,15 @@ Access: https://blog.logrocket.com/how-to-use-axios-post-requests/ */
 
 function UserInput() {
   const [uiData, setUIData] = useState({
-    food1Name: "Milk",
+    food1Name: "Milk, evaporated, whole",
     food1Serving: "1",
-    food2Name: "Pasta",
+    food2Name: "Pasta, vegetable, cooked",
     food2Serving: "2",
-    food3Name: "Tomato",
+    food3Name: "Tomato juice cocktail",
     food3Serving: "3",
-    food4Name: "Carne Asada",
+    food4Name: "Ice cream cone, soft serve, chocolate",
     food4Serving: "4",
-    food5Name: "Rice and Beans",
+    food5Name: "Licorice",
     food5Serving: "5",
   });
   const [profileData, setProfileData] = useState(null);
@@ -53,9 +53,11 @@ function UserInput() {
       .then((response) => {
         const res = response.data;
         setProfileData({
-          profile_name: res.name,
-          about_me: res.about,
-          result: res.result,
+          suggestion1G: res.suggestion1G,
+          suggestion2G: res.suggestion2G,
+          suggestion3G: res.suggestion3G,
+          suggestion4G: res.suggestion4G,
+          suggestion5G: res.suggestion5G,
           graphTime: res.graphTime,
         });
       })
@@ -67,6 +69,14 @@ function UserInput() {
         }
       });
   };
+  /**
+   * suggestion1H: res.suggestion1H,
+          suggestion2H: res.suggestion2H,
+          suggestion3H: res.suggestion3H,
+          suggestion4H: res.suggestion4H,
+          suggestion5H: res.suggestion5H,
+          hashTime: res.hashTime,
+   */
 
   return (
     <div className="uiDesign">
@@ -196,14 +206,25 @@ function UserInput() {
       </form>
       {profileData && (
         <div>
-          <p>Profile name: {profileData.profile_name}</p>
-          <p>About me: {profileData.about_me}</p>
-          <p>Result: {profileData.result}</p>
+          <p>Suggestion1G: {profileData.suggestion1G}</p>
+          <p>Suggestion2G: {profileData.suggestion2G}</p>
+          <p>Suggestion3G: {profileData.suggestion3G}</p>
+          <p>Suggestion4G: {profileData.suggestion4G}</p>
+          <p>Suggestion5G: {profileData.suggestion5G}</p>
           <p>graphTime: {profileData.graphTime}</p>
         </div>
       )}
     </div>
   );
 }
+
+/**
+ * <p>Suggestion1H: {profileData.suggestion1H}</p>
+          <p>Suggestion2H: {profileData.suggestion2H}</p>
+          <p>Suggestion3H: {profileData.suggestion3H}</p>
+          <p>Suggestion4H: {profileData.suggestion4H}</p>
+          <p>Suggestion5H: {profileData.suggestion5H}</p>
+          <p>hashTime: {profileData.hashTime}</p>
+ */
 
 export default UserInput;
