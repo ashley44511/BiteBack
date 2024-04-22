@@ -149,7 +149,7 @@ class Graph:
     def getSuggestions(self, neededNutrients, goalNutrients):
     # function to parse graph and find 5 food suggestions to improve meal. 
     # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
-        suggestions = []
+        suggestions = {}
         percentage = {}
         for nutrient in neededNutrients:
             # determining top 5 needed by highest percentage needed
@@ -172,8 +172,9 @@ class Graph:
 
         # find foods that meet top_5_needed
         for nutrient in top_5_dict:
-            suggestions.append(random.choice(self.getHighestNutrientFoods(nutrient, top_5_dict[nutrient])))
+            suggestions[nutrient] = (random.choice(self.getHighestNutrientFoods(nutrient, top_5_dict[nutrient])))
             
+        # suggestions in format {vitamin : food suggestion}
         return suggestions  
         
 def pickleGraph():
