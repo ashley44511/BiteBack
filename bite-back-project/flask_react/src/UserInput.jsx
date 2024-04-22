@@ -1,8 +1,8 @@
 import FormFood from "./FormFood";
 import { useState } from "react";
 import axios from "axios";
-import macroPieChart from "public/macro_pie_chart.png"; // Import your image files
-import overlappedBarChart from "public/overlapped_bar_chart.jpg";
+import macroPieChart from "./images/macro_pie_chart.png"; // Import your image files
+import overlappedBarChart from "./images/overlapped_bar_chart.jpg";
 
 /*Axios setup inspired by this article
 How to use Axios POST requests
@@ -224,7 +224,12 @@ function UserInput() {
           <p>Suggestion4H: {profileData.suggestion4H}</p>
           <p>Suggestion5H: {profileData.suggestion5H}</p>
           <p>hashTime: {profileData.hashTime}</p>
+          <div>
+          <img src={macroPieChart} alt="Macro Pie Chart" />
+          <img src={overlappedBarChart} alt="Overlapped Bar Chart" />
         </div>
+        </div>
+        
       )}
     </div>
   );
