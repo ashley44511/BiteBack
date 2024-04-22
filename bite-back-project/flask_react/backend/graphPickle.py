@@ -175,6 +175,26 @@ class Graph:
             suggestions.append(random.choice(self.getHighestNutrientFoods(nutrient, top_5_dict[nutrient])))
             
         return suggestions  
+        
+def pickleGraph():
+    # Create graph, Load DF, and insert nodes/edges
+    graph = Graph()
+    df = loadData()
+    graph.load_data(df)
+
+    # example graph for testing :
+    '''
+    graph.add_edge("milk", "protein", 5)
+    graph.add_edge("milk", "fat", 6)
+    graph.add_edge("sausage", "protein", 2)
+    graph.add_edge("banana", "vitamin C", 3)
+    graph.add_edge("mango", "vitamin D", 2)
+    '''
+
+    # once graph is fully loaded (only need to do this once since it stores the whole data set - point is to reduce runtime when using webapp)
+    with open("data/data_graph.pickle", "wb") as file:
+        pickle.dump(graph, file)
+        print ("Graph successfully pickled!")
 
 
 # this code was used to pickle the data from the dataframe - not needed anymore

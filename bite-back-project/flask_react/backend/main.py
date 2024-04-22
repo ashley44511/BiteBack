@@ -1,11 +1,17 @@
 # run when user submits their five food items
 import pickle
-from graphPickle import Graph
+from graphPickle import Graph, pickleGraph
 from hashPickle import HashTable
 from hashPickle import Entry
 import plotly.express as px
 import plotly.io as pio
 import time
+
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+api = Flask(__name__)
+CORS(api)
 
 class Main:
     def __init__(self):
@@ -14,13 +20,21 @@ class Main:
         self.hash = HashTable()
 
         # get data into classes from pickle file
+        #with open("./data/data_graph.pickle", "rb") as graphFile:
+            #self.graph = pickle.load(graphFile)
+        #with open("./data/data_hash.pickle", "rb") as hashFile:
+            #self.hash = pickle.load(hashFile)
+
+        #graphFile.close()
+        #hashFile.close()
+    
+    def pickleNewGraph(self):
+        pickleGraph()
+
+    def unpickleGraph(self):
         with open("./data/data_graph.pickle", "rb") as graphFile:
             self.graph = pickle.load(graphFile)
-        with open("./data/data_hash.pickle", "rb") as hashFile:
-            self.hash = pickle.load(hashFile)
-
         graphFile.close()
-        hashFile.close()
 
     def runHash(self, meal):
         # HASH - start time here
@@ -82,7 +96,7 @@ class Main:
         input = {"Cuban sandwich, with spread" : 1, "Milk, whole" : 2}   # example input for now format food : num servings
 
         # each functions compares the time it took and the foods suggested by each data structure
-        hashTime, hashSuggestions = self.runHash(input)
+        #hashTime, hashSuggestions = self.runHash(input)
         graphTime, graphSuggestions = self.runGraph(input)
         #print("Hash RunTime: " + str(hashTime))
         #print("Hash Suggestions: ", end = "")
@@ -98,4 +112,23 @@ class Main:
         #createPieChart(hash.mealNutrition(meal))
 
         # send charts, time, and food suggestions to back end 
+
+
+@api.route('/profile/', methods=['POST'])
+def my_profile():
+    main = Main()
+    graphTime = main.mainImportVersion()
+    response_body = {
+        "name": "Nagato",
+        "about": "Hello! I'm a full stack developer that loves python and javascript",
+        "result": request.json['food1Name'],
+        "graphTime": graphTime
+    }
+
+    return response_body
+
+
+if __name__ == "__main__":
+    main = Main()
+    main.pickleNewGraph()
  
