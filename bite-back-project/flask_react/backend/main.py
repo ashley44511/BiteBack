@@ -160,6 +160,7 @@ class Main:
 
 @api.route('/profile/', methods=['POST'])
 def my_profile():
+    print("profile function pinged!")
     food1Name = request.json['food1Name']
     food1Serving = request.json['food1Serving']
     food2Name = request.json['food2Name']
@@ -173,7 +174,7 @@ def my_profile():
     input = {food1Name: food1Serving, food2Name: food2Serving, food3Name: food3Serving, food4Name: food4Serving, food5Name: food5Serving}
 
     main = Main()
-    #hashTime, hashSuggestions
+    # run main script
     graphTime, graphSuggestions, hashTime, hashSuggestions = main.mainImportVersion(input)
     vitaminsG = []
     vitaminsH = []
@@ -188,7 +189,6 @@ def my_profile():
         vitaminsH.append(item)
         foodsH.append(hashSuggestions[item])
 
-    print("foodsG2")
 
     response_body = {
         "suggestion1G": foodsG[0],

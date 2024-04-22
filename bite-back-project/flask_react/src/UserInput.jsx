@@ -1,6 +1,8 @@
 import FormFood from "./FormFood";
 import { useState } from "react";
 import axios from "axios";
+import macroPieChart from "public/macro_pie_chart.png"; // Import your image files
+import overlappedBarChart from "public/overlapped_bar_chart.jpg";
 
 /*Axios setup inspired by this article
 How to use Axios POST requests
@@ -28,6 +30,7 @@ function UserInput() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(`handleChange called with ${name}: ${value}`);
     setUIData({
       ...uiData,
       [name]: value,
@@ -48,9 +51,10 @@ function UserInput() {
       food5Name: uiData.food5Name,
       food5Serving: uiData.food5Serving,
     };
-    axios
-      .post("/profile/", userData)
+    console.log("Handle Submit Called")
+    axios.post("/profile/", userData)
       .then((response) => {
+        console.log(".then called")
         const res = response.data;
         setProfileData({
           suggestion1G: res.suggestion1G,
@@ -66,6 +70,7 @@ function UserInput() {
           suggestion5H: res.suggestion5H,
           hashTime: res.hashTime,
         });
+        console.log("Profile Data accessed")
       })
       .catch((error) => {
         if (error.response) {

@@ -10,12 +10,12 @@ CORS(api)
 @api.route('/profile/', methods=['POST'])
 def my_profile():
     main = Main()
-    graphTime = main.mainImportVersion()
+    print("base profile pinged")
     response_body = {
         "name": "Nagato",
         "about": "Hello! I'm a full stack developer that loves python and javascript",
-        "result": request.json['food1Name'],
-        "graphTime": graphTime
+        "result": "Random",
+        "graphTime": "0.535342"
     }
 
     return response_body
