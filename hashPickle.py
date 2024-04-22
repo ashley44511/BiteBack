@@ -66,27 +66,27 @@ class HashTable:
         # https://www.fda.gov/food/nutrition-facts-label/daily-value-nutrition-and-supplement-facts-labels
         # initiated as dictionary of form 'nutrient name: amount"
         daily_intake = {
-            "Alpha Carotene": 0,
-            "Beta Carotene": 0,
-            "Beta Cryptoxanthin": 0,
+            "Alpha_Carotene": 0,
+            "Beta_Carotene": 0,
+            "Beta_Cryptoxanthin": 0,
             "Carbohydrate": 275,
             "Cholesterol": 300,
             "Choline": 2300,
             "Fiber": 28,
-            "Lutein and Zeaxanthin": 0,
+            "Lutein_and_Zeaxanthin": 0,
             "Lycopene": 0,
             "Niacin": 16,
             "Protein": 50,
             "Retinol": 0,
             "Riboflavin": 1.3,
             "Selenium": 55,
-            "Sugar Total": 50,
+            "Sugar_Total": 50,
             "Thiamin": 1.2,
             "Water": 0,
-            "Monosaturated Fat": 0,
-            "Polysaturated Fat": 0,
-            "Saturated Fat": 20,
-            "Total Lipid": 78,
+            "Monosaturated_Fat": 0,
+            "Polysaturated_Fat": 0,
+            "Saturated_Fat": 20,
+            "Total_Lipid": 78,
             "Calcium": 1300,
             "Copper": 0.9,
             "Iron": 18,
@@ -95,17 +95,13 @@ class HashTable:
             "Potassium": 4700,
             "Sodium": 2300,
             "Zinc": 11,
-            "Vitamin A - RAE": 900,
-            "Vitamin B12": 2.4,
-            "Vitamin B6": 1.7,
-            "Vitamin C": 90,
-            "Vitamin E": 15,
-            "Vitamin K": 120
+            "Vitamin_A_RAE": 900,
+            "Vitamin_B12": 2.4,
+            "Vitamin_B6": 1.7,
+            "Vitamin_C": 90,
+            "Vitamin_E": 15,
+            "Vitamin_K": 120
         }
-
-        # nutrients in the dataset that didn't have daily recommendations 
-        irrelevant = ["Alpha Carotene", "Beta Carotene", "Beta Cryptoxanthin", "Lutein and Zeaxanthin", 
-                  "Lycopene", "Retinol", "Water", "Monosaturated Fat", "Polysaturated Fat"]
 
         # total nutrients in user meal
         total = self.mealNutrition(meal)
@@ -113,15 +109,37 @@ class HashTable:
         # determining nutrients needed
         needed = daily_intake
         for food, amount in total.items():
-            needed[food] -= (amount)    
+            needed[food] -= (amount)
+
         return needed # returning a dictionary in format 'nutrient name: amount needed'
     
-    def getSuggestions(self, neededNutrients):
-        # TODO
-        # function to parse hash map and find 5 food suggestions to improve meal. 
-        # ideally would like both suggestion functions to have each suggestion focus on a different nutrient, like the top 5 most needed
-        suggestions = []
-
+    # getting suggestions for meal
+    def getNutrients(self, neededNutrients, goalNutrients):
+        # sorts needed nutrients by having highest amount needed at front
+        sorted_nutrients = {key: value for key, value in sorted(neededNutrients.items(), key=lambda item: item[1], reverse=True)}
+        
+        # nutrients in the dataset that didn't have daily recommendations 
+        irrelevant = ["Alpha_Carotene", "Beta_Carotene", "Beta_Cryptoxanthin", "Lutein_and_Zeaxanthin", 
+                  "Lycopene", "Retinol", "Water", "Monosaturated_Fat", "Polysaturated_Fat"]
+        
+        suggestions = {}
+        i = 0
+        for nutrient, amount in sorted_nutrients.items():
+            if i < 5:
+                if nutrient in irrelevant:
+                    continue
+                current = 0.0
+                best = None
+                # checking to see if it is greater than previous + not more than what is needed
+                for item in ht.table:
+                    if (item.nutrients[nutrient] > current) and (item.nutrients[nutrient] <= amount):
+                        current = item.nutrients[nutrient]
+                        best = item
+                suggestions[nutrient] = best.food
+                i += 1
+            else:
+                break
+        # returns a dictionary in form "nutrient needed: recommended food"
         return suggestions
 
 if __name__ == "__main__":
