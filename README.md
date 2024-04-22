@@ -6,7 +6,41 @@
 <p>Final Report: https://docs.google.com/document/d/1uiY8fuBUwxjSFu4GX8bloH63Rh8TuoJourvERnBV6Ac/edit?usp=sharing</p>
 
 <p>Before running any scripts (especially main.py), please use the following commands:</p>
+cd bite-back-project
+cd flask_react
+cd backend
+For mac/unix users: python3 -m venv env
+For windows users: py -m venv env
+For mac/unix users: source env/bin/activate
+For windows users: .\env\Scripts\activate
+pip install flask python-dotenv plotly pandas flask_cors kaleido
 
+
+cd bite-back-project
+cd flask_react
+npm install
+
+
+<p>To run for the first time after cloning:</p>
+Open a new terminal.
+cd bite-back-project
+cd flask_react
+npm install
+npm start
+The frontend should now be set up.
+Open another terminal.
+cd bite-back-project
+cd flask_react
+cd backend
+Create a virtual environment.
+For mac/unix users: python3 -m venv env
+For windows users: py -m venv env
+Activate the virtual environment. When restarting the project, you only need to activate from now on.
+For mac/unix users: source env/bin/activate
+For windows users: .\env\Scripts\activate
+pip install flask python-dotenv plotly pandas flask_cors kaleido
+flask run
+The backend is now running, and the submit button on the website will now work.
 
 
 <h2>To run through the UI:</h2>
