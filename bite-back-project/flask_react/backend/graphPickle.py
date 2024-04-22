@@ -47,13 +47,14 @@ class Graph:
         return nutrients
     
     def getHighestNutrientFoods(self, nutrientName, amountNeeded):
-        # this returns all foods that contain the amount of a nutrient needed
-        # this dict contains foods with the highest amount of the input nutrient
+        # this returns all foods that contain the amount of a nutrient needed (within a 20% amount needed unit threshold - ensures returning something)
+        # this list contains foods with the highest amount of the input nutrient
+        threshold = amountNeeded * 0.2
         adjList = self.adjList[nutrientName]
-        goalFoods = {}
+        goalFoods = []
         for food in adjList:
-            if food[1] == amountNeeded:
-                goalFoods[food[0]] = food[1]
+            if (amountNeeded - threshold) <= food[1] <= (amountNeeded + threshold):
+                goalFoods.append(food[0])
          
         return goalFoods
 
@@ -170,8 +171,8 @@ class Graph:
             top_5_dict[foodName] = neededNutrients[foodName]
 
         # find foods that meet top_5_needed
-        for nutrient, amount in top_5_needed:
-            suggestions += random.sample(list(self.getHighestNutrientFoods(nutrient, amount).keys()), 1)
+        for nutrient in top_5_dict:
+            suggestions.append(random.choice(self.getHighestNutrientFoods(nutrient, top_5_dict[nutrient])))
             
         return suggestions  
 
