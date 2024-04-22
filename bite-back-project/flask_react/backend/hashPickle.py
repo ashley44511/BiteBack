@@ -184,4 +184,3 @@ def pickleHash():
     with open("data/data_hash.pickle", "wb") as file:
         pickle.dump(ht, file)
         print("Hash map successfully pickled!")
-

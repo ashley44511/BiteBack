@@ -6,7 +6,6 @@ from hashPickle import HashTable, pickleHash
 from hashPickle import Entry
 import plotly.express as px
 import plotly.io as pio
-from plotly import graph_objs as go
 import time
 
 from flask import Flask, request, jsonify
@@ -98,8 +97,7 @@ class Main:
         fig.update_layout(title_x=0.5)
         fig.update_layout(width=800, height=600)
         fig.update_layout(title_font=dict(size=24), legend_font=dict(size=16))
-        fig.write_image("../public/macro_pie_chart.png")
-        #fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg", engine="plotly")
+        fig.write_image("../src/images/macro_pie_chart.png")
         return
     
     def createBarChart(self, nutrients, goalNutrients):
@@ -127,40 +125,41 @@ class Main:
         fig.update_layout(width=800, height=600)
 
         # Save the chart as an image
-        fig.write_image('../public/overlapped_bar_chart.jpg')  # Change file format as needed (e.g., 'overlapped_bar_chart.jpg')
-
+        fig.write_image('../src/images/overlapped_bar_chart.png')  # Change file format as needed (e.g., 'overlapped_bar_chart.jpg')
+    
     def mainImportVersion(self, input):
         # get input from website as args
         # TODO
 
-        # example input for now format food : num servings
-        # input = {"Cuban sandwich, with spread": 1, "Milk, whole": 2}
-
         # load data
-        self.unpickleGraph()
+        self.unpickleGraph() 
         self.unpickleHash()
+        # input = {"Cuban sandwich, with spread" : 1, "Milk, whole" : 2}   # example input for now format food : num servings
 
         # each functions compares the time it took and the foods suggested by each data structure
         hashTime, hashSuggestions, goalNutrients = self.runHash(input)
         graphTime, graphSuggestions, mealNutrition = self.runGraph(input)
         print("Hash RunTime: " + str(hashTime))
-        print("Hash Suggestions: ", end="")
+        print("Hash Suggestions: ", end = "")
         print(hashSuggestions)
         print("Graph RunTime: " + str(graphTime))
-        print("Graph Suggestions: ", end="")
+        print("Graph Suggestions: ", end = "")
         print(graphSuggestions)
-        print("foodsG1")
 
-        #create visualizations - saved in /public to be displayed 
+        #create visualizations
         self.createPieChart(mealNutrition)
         self.createBarChart(mealNutrition, goalNutrients)
 
-        #return hash runtime, graph runtime, graph suggestions, hash suggestions - used by Front End
+
+        #return hash runtime, graph runtime, graph suggestions, hash suggestions
         return graphTime, graphSuggestions, hashTime, hashSuggestions
+
+        
+
+        # send charts, time, and food suggestions to back end 
 
 @api.route('/profile/', methods=['POST'])
 def my_profile():
-    print("profile function pinged!")
     food1Name = request.json['food1Name']
     food1Serving = request.json['food1Serving']
     food2Name = request.json['food2Name']
@@ -174,7 +173,7 @@ def my_profile():
     input = {food1Name: food1Serving, food2Name: food2Serving, food3Name: food3Serving, food4Name: food4Serving, food5Name: food5Serving}
 
     main = Main()
-    # run main script
+    #hashTime, hashSuggestions
     graphTime, graphSuggestions, hashTime, hashSuggestions = main.mainImportVersion(input)
     vitaminsG = []
     vitaminsH = []
@@ -204,7 +203,7 @@ def my_profile():
         "suggestion5H": foodsH[4],
         "hashTime": hashTime,
     }
-    
+
     return response_body
 
 

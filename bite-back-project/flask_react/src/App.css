@@ -28,14 +28,53 @@
   color: green;
 }
 
+.App-header h2{
+  color: green;
+  font-size: 24px;
+}
+
 .App-header p {
   color: black;
+}
+
+#container {
+  width: 100%;
+}
+
+#container-green {
+  width: 100%;
+  background-color: green;
+}
+
+.first {
+  width: 50%;
+  float: left;
+  height: 300px;
+}
+
+.second {
+  width: 50%;
+  float: left;
+  height: 300px;
+}
+
+.first img{
+  width: 95%;
+  height: auto;
+  overflow: hidden;
+}
+
+.second img{
+  width: 95%;
+  height: auto;
+  overflow: hidden;
 }
 
 .uiDesign p {
   color: black;
   font-size: 14px;
 }
+
 .uiDesign label {
   color: black;
 }
@@ -63,10 +102,12 @@ Button Design from: https://www.w3schools.com/css/tryit.asp?filename=trycss_butt
   justify-content: center;
   height: 100%;
   width: 100%;
+  margin-top: 5%;
 }
 
 .funFactImage img {
   width: 80%;
+  height: auto;
   float: left;
   padding-top: 10%;
 }
