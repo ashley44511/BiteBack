@@ -8,11 +8,11 @@ import plotly.express as px
 import plotly.io as pio
 import time
 
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+#from flask import Flask, request, jsonify
+#from flask_cors import CORS
 
-api = Flask(__name__)
-CORS(api)
+#api = Flask(__name__)
+#CORS(api)
 
 class Main:
     def __init__(self):
@@ -42,7 +42,7 @@ class Main:
 
     def unpickleHash(self):
         with open(os.path.abspath("data/data_hash.pickle"), "rb") as hashFile:
-            self.graph = pickle.load(hashFile)
+            self.hash = pickle.load(hashFile)
         hashFile.close()
 
     def runHash(self, meal):
@@ -105,31 +105,36 @@ class Main:
     def mainImportVersion(self):
         # get input from website as args
         # TODO
-        self.unpickleGraph() # load data
-        input = {"Cuban sandwich, with spread" : 1, "Milk, whole" : 2}   # example input for now format food : num servings
+
+        # example input for now format food : num servings
+        input = {"Cuban sandwich, with spread": 1, "Milk, whole": 2}
+
+        # load data
+        self.unpickleGraph()
+        self.unpickleHash()
 
         # each functions compares the time it took and the foods suggested by each data structure
-        #hashTime, hashSuggestions = self.runHash(input)
+        hashTime, hashSuggestions = self.runHash(input)
         graphTime, graphSuggestions, mealNutrition = self.runGraph(input)
-        #print("Hash RunTime: " + str(hashTime))
-        #print("Hash Suggestions: ", end = "")
-        #print(hashSuggestions)
+        print("Hash RunTime: " + str(hashTime))
+        print("Hash Suggestions: ", end="")
+        print(hashSuggestions)
         print("Graph RunTime: " + str(graphTime))
-        print("Graph Suggestions: ", end = "")
+        print("Graph Suggestions: ", end="")
         print(graphSuggestions)
 
         #create visualizations - saved in /public to be displayed 
         self.createPieChart(mealNutrition)
 
         #return hash runtime, graph runtime, graph suggestions, hash suggestions
-        return graphTime, graphSuggestions
+        return graphTime, graphSuggestions, hashTime, hashSuggestions
 
         
         
 
         # send charts, time, and food suggestions to back end 
 
-
+'''
 @api.route('/profile/', methods=['POST'])
 def my_profile():
     food1Name = request.json['food1Name']
@@ -166,7 +171,10 @@ def my_profile():
 
     return response_body
 
+'''
+
 if __name__ == "__main__":
     main = Main()
     main.pickleNewGraph()
+    main.pickleNewHash()
  

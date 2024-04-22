@@ -121,45 +121,67 @@ class HashTable:
     
     # getting suggestions for meal
     def getSuggestions(self, neededNutrients, goalNutrients):
-        # sorts needed nutrients by having highest amount needed at front
-        sorted_nutrients = {key: value for key, value in sorted(neededNutrients.items(), key=lambda item: item[1], reverse=True)}
+        
+        percentage = {}
+        for nutrient in neededNutrients:
+            # determining top 5 needed by highest percentage needed
+            if goalNutrients[nutrient] == 0:
+                pass  # don't store nutrients not needed or with goal met
+            elif (neededNutrients[nutrient] / goalNutrients[nutrient]) < 0:
+                pass
+            else:
+                percentage[nutrient] = neededNutrients[nutrient] / goalNutrients[nutrient]
+
+        # sorts needed nutrients by having highest % needed at front
+        sortedPercentage = dict(sorted(percentage.items(), key=lambda item: item[1], reverse=True))
+        top_5_needed = list(sortedPercentage.items())[:5] #dictionary with nutrient name : % amount needed
+
+        top_5_dict = {}
+        for i in top_5_needed:
+            # change back to numerical from percentage needed. format: {Nutrient : amount needed}
+            foodName = i[0]
+            top_5_dict[foodName] = neededNutrients[foodName]
         
         # nutrients in the dataset that didn't have daily recommendations 
         irrelevant = ["Alpha Carotene", "Beta Carotene", "Beta Cryptoxanthin", "Lutein and Zeaxanthin", 
                   "Lycopene", "Retinol", "Water", "Monosaturated Fat", "Polysaturated Fat"]
         
         suggestions = {}
-        i = 0
-        for nutrient, amount in sorted_nutrients.items():
-            if i < 5:
+        
+        #iterates over each of the top 5 nutrients needed and 
+        for nutrient in top_5_dict.items():
+                amount = nutrient[1]
                 if nutrient in irrelevant:
                     continue
                 current = 0.0
                 best = None
                 # checking to see if it is greater than previous + not more than what is needed
-                for item in ht.table:
-                    if (item.nutrients[nutrient] > current) and (item.nutrients[nutrient] <= amount):
-                        current = item.nutrients[nutrient]
+                for item in self.table:
+                    if (item.nutrients[nutrient[0]] > current) and (item.nutrients[nutrient[0]] <= amount):
+                        current = item.nutrients[nutrient[0]]
                         best = item
-                suggestions[nutrient] = best.food
-                i += 1
-            else:
-                break
+                suggestions[nutrient[0]] = best.food
+                
+
         # returns a dictionary in form "nutrient needed: recommended food"
         return suggestions
+    def load_data(self, df):
+        for index, row, in df.iterrows():
+            food = row.iloc[0]
+            nutrition = {}
+            for nutrient, amount in zip(df.columns[1:], row.iloc[1:]):
+                nutrition[nutrient] = amount
+            self.insert(food, nutrition)
 
-if __name__ == "__main__":
+
+def pickleHash():
+    # Create graph, Load DF, and insert nodes/edges
     ht = HashTable()
-    # iterate through each row of dataframe and store food name + nutritional content
-    for index, row, in df.iterrows():
-        food = row.iloc[0]
-        nutrition = {}
-        for nutrient, amount in zip(df.columns[1:], row.iloc[1:]):
-            nutrition[nutrient] = amount
-        ht.insert(food, nutrition)
+    df = loadData()
+    ht.load_data(df)
 
-     
-    # after hash data is loaded and saved
+    # once hash is fully loaded (only need to do this once since it stores the whole data set - point is to reduce runtime when using webapp)
     with open("data/data_hash.pickle", "wb") as file:
-        pickle.dump(ht, file) 
+        pickle.dump(ht, file)
         print("Hash map successfully pickled!")
+

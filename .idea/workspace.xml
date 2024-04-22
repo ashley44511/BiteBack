@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0516e5bc-a063-4c42-a931-bc79433a2edf" name="Changes" comment="added mainTest to test separate from UI" />
+    <list default="true" id="0516e5bc-a063-4c42-a931-bc79433a2edf" name="Changes" comment="added mainTest to test separate from UI">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/backend/data/data_graph.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/backend/data/data_graph.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/backend/data/data_hash.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/backend/data/data_hash.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/backend/hashPickle.py" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/backend/hashPickle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/backend/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/public/macro_pie_chart.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/public/macro_pie_chart.jpg" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +51,7 @@
       <updated>1713723904628</updated>
       <workItem from="1713723908925" duration="3486000" />
       <workItem from="1713736084714" duration="339000" />
+      <workItem from="1713789556546" duration="1695000" />
     </task>
     <task id="LOCAL-00001" summary="added mainTest to test separate from UI">
       <created>1713736415876</created>
@@ -85,9 +93,9 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BiteBack$main.coverage" NAME="main Coverage Results" MODIFIED="1713726244930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/BiteBack$hashPickle.coverage" NAME="hashPickle Coverage Results" MODIFIED="1713736227703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
+    <SUITE FILE_PATH="coverage/BiteBack$main.coverage" NAME="main Coverage Results" MODIFIED="1713790942186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
     <SUITE FILE_PATH="coverage/BiteBack$graphPickle.coverage" NAME="graphPickle Coverage Results" MODIFIED="1713736337450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
-    <SUITE FILE_PATH="coverage/BiteBack$mainTest.coverage" NAME="mainTest Coverage Results" MODIFIED="1713736380027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
+    <SUITE FILE_PATH="coverage/BiteBack$mainTest.coverage" NAME="mainTest Coverage Results" MODIFIED="1713791228755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
   </component>
 </project>
