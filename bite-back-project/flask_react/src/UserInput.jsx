@@ -59,6 +59,12 @@ function UserInput() {
           suggestion4G: res.suggestion4G,
           suggestion5G: res.suggestion5G,
           graphTime: res.graphTime,
+          suggestion1H: res.suggestion1H,
+          suggestion2H: res.suggestion2H,
+          suggestion3H: res.suggestion3H,
+          suggestion4H: res.suggestion4H,
+          suggestion5H: res.suggestion5H,
+          hashTime: res.hashTime,
         });
       })
       .catch((error) => {
@@ -70,12 +76,7 @@ function UserInput() {
       });
   };
   /**
-   * suggestion1H: res.suggestion1H,
-          suggestion2H: res.suggestion2H,
-          suggestion3H: res.suggestion3H,
-          suggestion4H: res.suggestion4H,
-          suggestion5H: res.suggestion5H,
-          hashTime: res.hashTime,
+   * 
    */
 
   return (
@@ -212,6 +213,12 @@ function UserInput() {
           <p>Suggestion4G: {profileData.suggestion4G}</p>
           <p>Suggestion5G: {profileData.suggestion5G}</p>
           <p>graphTime: {profileData.graphTime}</p>
+          <p>Suggestion1H: {profileData.suggestion1H}</p>
+          <p>Suggestion2H: {profileData.suggestion2H}</p>
+          <p>Suggestion3H: {profileData.suggestion3H}</p>
+          <p>Suggestion4H: {profileData.suggestion4H}</p>
+          <p>Suggestion5H: {profileData.suggestion5H}</p>
+          <p>hashTime: {profileData.hashTime}</p>
         </div>
       )}
     </div>
@@ -219,12 +226,7 @@ function UserInput() {
 }
 
 /**
- * <p>Suggestion1H: {profileData.suggestion1H}</p>
-          <p>Suggestion2H: {profileData.suggestion2H}</p>
-          <p>Suggestion3H: {profileData.suggestion3H}</p>
-          <p>Suggestion4H: {profileData.suggestion4H}</p>
-          <p>Suggestion5H: {profileData.suggestion5H}</p>
-          <p>hashTime: {profileData.hashTime}</p>
+ * 
  */
 
 export default UserInput;

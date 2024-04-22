@@ -149,6 +149,7 @@ class Main:
         print("Graph RunTime: " + str(graphTime))
         print("Graph Suggestions: ", end="")
         print(graphSuggestions)
+        print("foodsG1")
 
         #create visualizations - saved in /public to be displayed 
         self.createPieChart(mealNutrition)
@@ -187,6 +188,8 @@ def my_profile():
         vitaminsH.append(item)
         foodsH.append(hashSuggestions[item])
 
+    print("foodsG2")
+
     response_body = {
         "suggestion1G": foodsG[0],
         "suggestion2G": foodsG[1],
@@ -194,7 +197,6 @@ def my_profile():
         "suggestion4G": foodsG[3],
         "suggestion5G": foodsG[4],
         "graphTime": graphTime,
-
         "suggestion1H": foodsH[0],
         "suggestion2H": foodsH[1],
         "suggestion3H": foodsH[2],
