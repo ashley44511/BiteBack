@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +24,66 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-header h1 {
+  color: green;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-header p {
+  color: black;
+}
+
+.uiDesign p {
+  color: black;
+  font-size: 14px;
+}
+.uiDesign label {
+  color: black;
+}
+
+/*
+Button Design from: https://www.w3schools.com/css/tryit.asp?filename=trycss_buttons_basic*/
+
+.uiDesign button {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.funFactContainer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.funFactImage img {
+  width: 80%;
+  float: left;
+  padding-top: 10%;
+}
+
+.funFactText div {
+  float: left;
+  padding-left: 20px;
+  padding-top: 20%;
+}
+
+.funFactText p {
+  color: black;
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.funFactText h2 {
+  color: green;
+  font-size: 20px;
 }
