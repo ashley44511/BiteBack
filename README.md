@@ -6,8 +6,7 @@
 <p>Final Report: https://docs.google.com/document/d/1uiY8fuBUwxjSFu4GX8bloH63Rh8TuoJourvERnBV6Ac/edit?usp=sharing</p>
 
 <p>Before running any scripts (especially main.py), please use the following commands:</p>
-<p>pip freeze > requirements.txt</p>
-<p>pip install -r requirements.txt</p>
+
 
 
 <h2>To run through the UI:</h2>
