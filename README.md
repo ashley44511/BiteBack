@@ -5,7 +5,7 @@
 <p>Data sources: https://think.cs.vt.edu/corgis/csv/food/ https://think.cs.vt.edu/corgis/python/food/</p>
 <p>Final Report: https://docs.google.com/document/d/1uiY8fuBUwxjSFu4GX8bloH63Rh8TuoJourvERnBV6Ac/edit?usp=sharing</p>
 
-<p>Before running any scripts (especially main.py), please use the following commands:</p>
+<h2>Before running any scripts (especially main.py), please use the following commands:</h2>
 <p>cd bite-back-project</p>
 <p>cd flask_react</p>
 <p>cd backend</p>
