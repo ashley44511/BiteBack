@@ -15,7 +15,6 @@
 <p>(on mac) run: source env/bin/activate</p>
 <p>(on windows) run: .\env\Scripts\activate</p>
 <p>run: npm run start-backend</p>
-<br></br>
 <h4>Open another terminal window</h4>
 <p>run: cd bite-back-project/flask_react</p>
 <p>run: npm start</p>
