@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0516e5bc-a063-4c42-a931-bc79433a2edf" name="Changes" comment="added mainTest to test separate from UI">
+      <change afterPath="$PROJECT_DIR$/bite-back-project/flask_react/public/macro_pie_chart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bite-back-project/flask_react/public/overlapped_bar_chart.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/backend/data/data_graph.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/backend/data/data_graph.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/backend/data/data_hash.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/backend/data/data_hash.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/backend/hashPickle.py" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/backend/hashPickle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/backend/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/backend/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bite-back-project/flask_react/public/macro_pie_chart.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/bite-back-project/flask_react/public/macro_pie_chart.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,23 +22,27 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2fQCRCCDK0HqAmK9rZhHugMXw53" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,7 +53,7 @@
       <updated>1713723904628</updated>
       <workItem from="1713723908925" duration="3486000" />
       <workItem from="1713736084714" duration="339000" />
-      <workItem from="1713789556546" duration="1695000" />
+      <workItem from="1713789556546" duration="3614000" />
     </task>
     <task id="LOCAL-00001" summary="added mainTest to test separate from UI">
       <created>1713736415876</created>
@@ -78,11 +80,24 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added mainTest to test separate from UI" />
     <option name="LAST_COMMIT_MESSAGE" value="added mainTest to test separate from UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bite-back-project/flask_react/backend/main.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bite-back-project/flask_react/backend/main.py</url>
+          <line>130</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -96,6 +111,6 @@
     <SUITE FILE_PATH="coverage/BiteBack$hashPickle.coverage" NAME="hashPickle Coverage Results" MODIFIED="1713736227703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
     <SUITE FILE_PATH="coverage/BiteBack$main.coverage" NAME="main Coverage Results" MODIFIED="1713790942186" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
     <SUITE FILE_PATH="coverage/BiteBack$graphPickle.coverage" NAME="graphPickle Coverage Results" MODIFIED="1713736337450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
-    <SUITE FILE_PATH="coverage/BiteBack$mainTest.coverage" NAME="mainTest Coverage Results" MODIFIED="1713791228755" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
+    <SUITE FILE_PATH="coverage/BiteBack$mainTest.coverage" NAME="mainTest Coverage Results" MODIFIED="1713794194292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bite-back-project/flask_react/backend" />
   </component>
 </project>
