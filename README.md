@@ -25,4 +25,6 @@
 
 
 <h2>To run just the backend Scripts:</h2>
-
+<p>open mainTest.py and change the input variable</p>
+<p>comment out all flask/api related lines in main.py (11-15 & 191-208) </p>
+<p>run mainTest.py</p>
