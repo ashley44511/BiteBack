@@ -9,11 +9,11 @@ import plotly.io as pio
 from plotly import graph_objs as go
 import time
 
-#from flask import Flask, request, jsonify
-#from flask_cors import CORS
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
-#api = Flask(__name__)
-#CORS(api)
+api = Flask(__name__)
+CORS(api)
 
 class Main:
     def __init__(self):
@@ -129,12 +129,12 @@ class Main:
         # Save the chart as an image
         fig.write_image('../public/overlapped_bar_chart.jpg')  # Change file format as needed (e.g., 'overlapped_bar_chart.jpg')
 
-    def mainImportVersion(self):
+    def mainImportVersion(self, input):
         # get input from website as args
         # TODO
 
         # example input for now format food : num servings
-        input = {"Cuban sandwich, with spread": 1, "Milk, whole": 2}
+        # input = {"Cuban sandwich, with spread": 1, "Milk, whole": 2}
 
         # load data
         self.unpickleGraph()
@@ -157,7 +157,6 @@ class Main:
         #return hash runtime, graph runtime, graph suggestions, hash suggestions - used by Front End
         return graphTime, graphSuggestions, hashTime, hashSuggestions
 
-'''
 @api.route('/profile/', methods=['POST'])
 def my_profile():
     food1Name = request.json['food1Name']
@@ -174,26 +173,38 @@ def my_profile():
 
     main = Main()
     #hashTime, hashSuggestions
-    graphTime, graphSuggestions = main.mainImportVersion()
-    response_body = {
-        "suggestion1G": graphSuggestions[0],
-        "suggestion2G": graphSuggestions[1],
-        "suggestion3G": graphSuggestions[2],
-        "suggestion4G": graphSuggestions[3],
-        "suggestion5G": graphSuggestions[4],
-        "graphTime": graphTime,
-    }
-    """
-    "suggestion1H": hashSuggestions[0],
-        "suggestion2H": hashSuggestions[1],
-        "suggestion3H": hashSuggestions[2],
-        "suggestion4H": hashSuggestions[3],
-        "suggestion5H": hashSuggestions[4],
-        "hashTime": hashTime,
-    """
+    graphTime, graphSuggestions, hashTime, hashSuggestions = main.mainImportVersion(input)
+    vitaminsG = []
+    vitaminsH = []
+    foodsG = []
+    foodsH = []
 
+    for item in graphSuggestions:
+        vitaminsG.append(item)
+        foodsG.append(graphSuggestions[item])
+
+    for item in hashSuggestions:
+        vitaminsH.append(item)
+        foodsH.append(hashSuggestions[item])
+
+    response_body = {
+        "suggestion1G": foodsG[0],
+        "suggestion2G": foodsG[1],
+        "suggestion3G": foodsG[2],
+        "suggestion4G": foodsG[3],
+        "suggestion5G": foodsG[4],
+        "graphTime": graphTime,
+
+        "suggestion1H": foodsH[0],
+        "suggestion2H": foodsH[1],
+        "suggestion3H": foodsH[2],
+        "suggestion4H": foodsH[3],
+        "suggestion5H": foodsH[4],
+        "hashTime": hashTime,
+    }
+    
     return response_body
-'''
+
 
 if __name__ == "__main__":
     main = Main()
