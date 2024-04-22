@@ -142,7 +142,7 @@ class Graph:
         return needed, goal # returning dictionaries in format 'nutrient name: amount needed'
 
     def print_graph(self):
-        # Print the graph - used to check proper loading
+        # Print the graph - used to check proper loading during development
         for key, value in self.adjList.items():
             print(f"{key}: {value}")
 

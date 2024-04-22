@@ -107,14 +107,20 @@ class HashTable:
         total = self.mealNutrition(meal)
                     
         # determining nutrients needed
-        needed = daily_intake
-        for food, amount in total.items():
-            needed[food] -= (amount)
+        goal = {}
+        needed = {}
+        for nutrient in daily_intake:
+            # divide daily value by 3 because this is one meal of 3 meals in a day
+            goal[nutrient] = daily_intake[nutrient] / 3
+            needed[nutrient] = daily_intake[nutrient] / 3
 
-        return needed # returning a dictionary in format 'nutrient name: amount needed'
+        for nutrient, amount in total.items():
+            needed[nutrient] -= (amount)
+
+        return needed, goal # returning a dictionary in format 'nutrient name: amount needed'
     
     # getting suggestions for meal
-    def getNutrients(self, neededNutrients, goalNutrients):
+    def getSuggestions(self, neededNutrients, goalNutrients):
         # sorts needed nutrients by having highest amount needed at front
         sorted_nutrients = {key: value for key, value in sorted(neededNutrients.items(), key=lambda item: item[1], reverse=True)}
         

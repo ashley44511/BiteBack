@@ -50,10 +50,10 @@ class Main:
         startTime = time.time()
         
         # find current meal nutrients - this is used for visualizations
-        mealNutrition = self.hash.meal_nutrition(meal)
+        mealNutrition = self.hash.mealNutrition(meal)
 
         # find nutrients needed to improve meal
-        neededNutrients, goalNutrients = self.hash.needed_nutrients(meal)
+        neededNutrients, goalNutrients = self.hash.neededNutrients(meal)
 
         # run suggestion algorithm 
         foodSuggestions = self.hash.getSuggestions(neededNutrients, goalNutrients)
@@ -79,7 +79,7 @@ class Main:
         # return 5 suggested foods - END HASH TIME
         endTime = time.time()
         runTime = endTime - startTime 
-        return runTime, foodSuggestions
+        return runTime, foodSuggestions, mealNutrition
     
     def createPieChart(self, nutrients):
         # this function will take in meal nutrients as a dict and create a pie chart of meal balance of main macros (Protein, Carbs, Fats)
@@ -98,6 +98,10 @@ class Main:
         #fig.write_image("bite-back-project/flask_react/public/macro_pie_chart.jpg", engine="plotly")
         return
     
+    def createHistogram(self,):
+        # this function will take in 
+        pass
+
     def mainImportVersion(self):
         # get input from website as args
         # TODO
@@ -106,7 +110,7 @@ class Main:
 
         # each functions compares the time it took and the foods suggested by each data structure
         #hashTime, hashSuggestions = self.runHash(input)
-        graphTime, graphSuggestions = self.runGraph(input)
+        graphTime, graphSuggestions, mealNutrition = self.runGraph(input)
         #print("Hash RunTime: " + str(hashTime))
         #print("Hash Suggestions: ", end = "")
         #print(hashSuggestions)
@@ -114,11 +118,14 @@ class Main:
         print("Graph Suggestions: ", end = "")
         print(graphSuggestions)
 
+        #create visualizations - saved in /public to be displayed 
+        self.createPieChart(mealNutrition)
+
         #return hash runtime, graph runtime, graph suggestions, hash suggestions
         return graphTime, graphSuggestions
 
-        #create visualizations
-        #createPieChart(hash.mealNutrition(meal))
+        
+        
 
         # send charts, time, and food suggestions to back end 
 
