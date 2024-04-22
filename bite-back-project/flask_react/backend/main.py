@@ -1,5 +1,6 @@
 # run when user submits their five food items
 import pickle
+import os
 from graphPickle import Graph, pickleGraph
 from hashPickle import HashTable
 from hashPickle import Entry
@@ -32,7 +33,7 @@ class Main:
         pickleGraph()
 
     def unpickleGraph(self):
-        with open("./data/data_graph.pickle", "rb") as graphFile:
+        with open(os.path.abspath("data/data_graph.pickle"), "rb") as graphFile:
             self.graph = pickle.load(graphFile)
         graphFile.close()
 
@@ -90,20 +91,20 @@ class Main:
         return
     
     def mainImportVersion(self):
-        # get input from website
+        # get input from website as args
         # TODO
-
+        self.unpickleGraph() # load data
         input = {"Cuban sandwich, with spread" : 1, "Milk, whole" : 2}   # example input for now format food : num servings
 
         # each functions compares the time it took and the foods suggested by each data structure
-        #hashTime, hashSuggestions = self.runHash(input)
+        # hashTime, hashSuggestions = self.runHash(input)
         graphTime, graphSuggestions = self.runGraph(input)
         #print("Hash RunTime: " + str(hashTime))
         #print("Hash Suggestions: ", end = "")
         #print(hashSuggestions)
-        #print("Graph RunTime: " + str(graphTime))
-        #print("Graph Suggestions: ", end = "")
-        #print(graphSuggestions)
+        print("Graph RunTime: " + str(graphTime))
+        print("Graph Suggestions: ", end = "")
+        print(graphSuggestions)
 
         #return hash runtime, graph runtime, graph suggestions, hash suggestions
         return graphTime
@@ -126,7 +127,6 @@ def my_profile():
     }
 
     return response_body
-
 
 if __name__ == "__main__":
     main = Main()
