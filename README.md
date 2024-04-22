@@ -10,13 +10,13 @@
 
 
 <h2>To run through the UI:</h2>
-<p>open a terminal window</p>
+<h4>Open a terminal window</h4>
 <p>run: cd bite-back-project/flask_react/backend </p>
 <p>(on mac) run: source env/bin/activate</p>
-<p>(on windows) run: </p>
+<p>(on windows) run: .\env\Scripts\activate</p>
 <p>run: npm run start-backend</p>
 <br></br>
-<p>open another terminal window</p>
+<h4>Open another terminal window</h4>
 <p>run: cd bite-back-project/flask_react</p>
 <p>run: npm start</p>
 <h3>The window should open on http://localhost:3000/</h3>
